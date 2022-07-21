@@ -34,6 +34,7 @@
     --transition: all 0.3s linear;
     --letter-spacing: 0.25rem;
     --radius: 0.5rem;
+    --card-radius: 0.35rem;
     --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --max-width: 1170px;
@@ -98,6 +99,7 @@ label {
     text-transform: capitalize;
     font-size: 0.95rem;
     font-family: var(--ff-primary);
+    font-weight: 700;
 }
 
 @media screen and (min-width: 800px) {
@@ -144,14 +146,31 @@ label {
     font-weight: 700;
     display: inline-block;
     cursor: pointer;
-    box-shadow: var(--dark-shadow);
+    /* box-shadow: var(--dark-shadow); */
     margin-top: 1rem;
+}
 
+.card-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: none;
+    background: var(--clr-primary-6);
+    border-radius: 0;
+    border-bottom-left-radius: var(--card-radius);
+    border-bottom-right-radius: var(--card-radius);
+    width: 100%;
+    padding: 1rem 0;
+    color: var(--clr-white);
 }
 
 .btn:hover {
     background: var(--clr-primary-6);
     color: var(--clr-white);
+}
+
+.card-btn:hover {
+    opacity: 0.7;
 }
 
 .box {
@@ -161,6 +180,12 @@ label {
     font-family: var(--ff-primary);
     text-transform: capitalize;
     padding: 0.5rem;
+
+}
+
+.box::placeholder {
+    font-weight: 800;
+    opacity: 0.7;
 }
 
 .section-head {
@@ -168,9 +193,16 @@ label {
     font-size: 2rem;
 }
 
-.card {
+/* .card {
     background: var(--clr-white);
     border-radius: var(--radius);
+    padding: 1.5rem 1rem;
+    position: relative;
+    margin: 0 auto;
+} */
+.card {
+    background: var(--clr-white);
+    border-radius: var(--card-radius);
     padding: 1.5rem 1rem;
     position: relative;
     margin: 0 auto;
@@ -249,35 +281,91 @@ nav {
     gap: 2rem;
 }
 
+.calc-center {
+    /* display: grid; */
+    /* justify-content: center; */
+    /* justify-items: center; */
+
+}
+
+.display-eligibility p {
+    text-transform: none;
+    text-align: left;
+    font-size: 1.6rem;
+    padding: 1.5rem;
+}
+
 .calc-card {
+    /* .card-side */
     max-width: 500px;
+
 }
 
-/* .inputs{
-max-width: 300px;
-margin: 4rem auto 0 auto;
-}
-.input{
-    margin: 1rem 0;
-    text-align: left;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 1rem 0;
-    align-items: center;
-} */
-.inputs {
-    max-width: 300px;
-    margin: 3rem 1.5rem 0 1.5rem;
-    display: grid;
-}
-
-.input {
-    margin: 1rem 0;
-    text-align: left;
+.tabs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+.tab {
+    background: var(--clr-grey-10);
+    border: none;
+    text-transform: capitalize;
+    font-family: var(--ff-secondary);
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0.75rem 0;
+    transition: var(--transition);
+}
+
+.tab:hover {
+    opacity: 0.5;
+    color: var(--clr-primary-1);
+}
+
+.tab1 {
+    border-top-left-radius: var(--card-radius);
+}
+
+.tab2 {
+    border-top-right-radius: var(--card-radius);
+}
+
+.selected-tab {
+    background: var(--clr-white);
+    transition: var(--transition);
+    /* box-shadow: var(--light-shadow); */
+}
+
+.selected-tab:hover {
+    opacity: 1;
+    color: black;
+}
+
+.calc-invisible {
+    display: none;
+}   
+
+.input {
+    margin: 2rem 0;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
     gap: 1rem 0;
+    justify-content: center;
     align-items: center;
+}
+
+.input-top {
+    margin-top: 5rem;
+}
+
+.input-bottom {
+    margin-bottom: 5rem;
 }
 
 /* APPLICATION */

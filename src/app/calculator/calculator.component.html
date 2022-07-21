@@ -1,4 +1,4 @@
-<div class="section">
+<!-- <div class="section">
   <div class="section-center">
     <h1 class="section-head">calculator</h1>
     <div class="cards">
@@ -49,6 +49,94 @@
           </div>
         </div>
         <button class="btn">calculate</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+<div class="section">
+  <div class="section-center">
+    <div class="card calc-card">
+      <div class="tabs">
+        <button [ngClass]="selected1" (click)="onClick1()" class="tab tab1">
+          eligibility
+        </button>
+        <button [ngClass]="selected2" (click)="onClick2()" class="tab tab2">
+          EMI
+        </button>
+      </div>
+      <form
+        [formGroup]="formdata"
+        [ngClass]="visible1"
+        (ngSubmit)="onSubmitEligibility(formdata.value)"
+        class="calc"
+      >
+        <!-- <div class="inputs"> -->
+        <div class="input input-top">
+          <label for="income">monthly income</label>
+          <input
+            type="text"
+            class="box"
+            placeholder="monthly income"
+            id="income"
+            name="income"
+            formControlName="income"
+          />
+        </div>
+        <div class="input input-bottom">
+          <label for="roi">rate of interest</label>
+          <input
+            type="text"
+            class="box"
+            placeholder="rate of interest"
+            id="roi"
+            name="roi"
+            formControlName="roi"
+          />
+        </div>
+        <!-- </div> -->
+
+        <input type="submit" class="btn card-btn" value="calculate" />
+      </form>
+      <form
+        [formGroup]="formdata1"
+        [ngClass]="visible2"
+        (ngSubmit)="onSubmitEmi(formdata1.value)"
+        class="calc"
+      >
+        <!-- <div class="inputs"> -->
+        <div class="input input-top">
+          <label for="loan">loan</label>
+          <input
+            type="text"
+            class="box"
+            placeholder="loan"
+            formControlName="loan"
+            id="loan"
+          />
+        </div>
+        <div class="input">
+          <label for="roi">rate of interest</label>
+          <input
+            type="text"
+            class="box"
+            placeholder="rate of interest"
+            id="roi"
+            formControlName="roi1"
+          />
+        </div>
+        <div class="input input-bottom">
+          <label for="tenure">tenure</label>
+          <input
+            type="text"
+            class="box"
+            placeholder="tenure"
+            formControlName="tenure"
+            id="tenure"
+          />
+        </div>
+
+        <!-- </div> -->
+        <button class="btn card-btn">calculate</button>
       </form>
     </div>
   </div>
