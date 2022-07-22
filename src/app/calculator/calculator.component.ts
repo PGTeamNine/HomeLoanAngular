@@ -1,3 +1,4 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -7,7 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
-
+  x:any;
   card:any ;
   title = 'FirstApp';
   formdata:any;
@@ -46,10 +47,10 @@ export class CalculatorComponent implements OnInit {
     
     
    this.card.innerHTML = `
-   <div class="display-eligibility">
-    <p>
-      You are eligible for a loan amount of ${this.loanEligibility}
-    </p>
+   <div>
+      You are eligible for a loan amount of
+       <span class="amount amount-highlight">${this.loanEligibility}</span>
+    </div>
     <a href="register.html"><button class="btn">apply now</button></a>
    </div>
    `;
@@ -60,20 +61,37 @@ export class CalculatorComponent implements OnInit {
   }
   public onSubmitEmi(emiForm:any){
     this.loan = emiForm.loan;
-    this.roi1 = emiForm.roi1/100;
-    this.tenure = emiForm.tenure/12;
+    this.roi1 = (emiForm.roi1/12)/100;
+    this.tenure = emiForm.tenure;
+    console.log(10/12/100);
     
+    this.x = Math.pow((1+this.roi1),this.tenure);
+    // console.log(this.x);
     
-    this.loanEmi = this.loan*this.roi1*Math.pow((1+this.roi1),this.tenure)/((Math.pow((1+this.roi1),this.tenure)-1));
+    this.loanEmi = this.loan*this.roi1*(this.x/(this.x-1));
+    // console.log(Math.round(this.loanEmi));
+this.loanEmi = Math.round(this.loanEmi);
+    
     
     
    this.card.innerHTML = `
-   <div class="display-eligibility">
-    <p>
-      Your EMI amount ${this.loanEmi}
-    </p>
+    <div>
+      Monthly EMI
+       <span class="amount amount-highlight">${this.loanEmi}</span>
+    </div>
+    <div>
+      Principal amount
+       <span class="amount">${this.loan}</span>
+    </div>
+    <div>
+       Interest amount
+        <span class="amount">${this.loanEmi*this.tenure}</span>
+    </div>
+    <div>
+       Loan payable
+       <span class="amount">${this.loanEmi*this.tenure - this.loan}</span>
+    </div>
     <a href="register.html"><button class="btn">apply now</button></a>
-   </div>
    `;
     
     
@@ -81,7 +99,7 @@ export class CalculatorComponent implements OnInit {
     
   }
   ngOnInit():void{
-    this.card=  document.querySelector('.card');
+    this.card=  document.querySelector('.calc-description');
     this.selected1 = 'selected-tab'
     this.visible2='calc-invisible'
     this.formdata = new FormGroup({

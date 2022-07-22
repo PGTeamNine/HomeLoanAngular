@@ -9,6 +9,10 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faB, faBars } from '@fortawesome/free-solid-svg-icons';
+import { fab, faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 
 @NgModule({
   declarations: [
@@ -23,9 +27,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ constructor(library: FaIconLibrary) {
+    library.addIcons(faBars,faFacebook,faTwitter,faInstagram);
+
+  }
+ }

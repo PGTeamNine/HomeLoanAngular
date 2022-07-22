@@ -2,7 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Tiro+Kannada&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC&family=Grand+Hotel&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
-/* VARIABLES */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+/* 
+=====================
+VARIABLES 
+=====================
+*/
 :root {
     /* dark shades of primary color*/
     --clr-primary-1: hsl(184, 91%, 17%);
@@ -30,9 +36,11 @@
     --clr-grey-9: hsl(212, 33%, 89%);
     --clr-grey-10: hsl(210, 36%, 96%);
     --clr-white: #fff;
-    --ff-primary: 'Roboto', sans-serif;
-    --ff-secondary: 'Lato',
-        sans-serif;
+    --ff-primary:'Lato',
+        sans-serif ;
+    --ff-secondary: 'Prompt',
+            sans-serif;
+    --ff-headfont: 'Koulen',cursive;
     --transition: all 0.3s linear;
     --letter-spacing: 0.25rem;
     --radius: 0.5rem;
@@ -42,7 +50,11 @@
     --max-width: 1170px;
 }
 
-/* GLOBAL */
+/* 
+=====================
+GLOBAL
+=====================
+*/
 * {
     padding: 0;
     margin: 0;
@@ -64,7 +76,7 @@ ul {
 a {
     text-decoration: none;
 }
-img{
+img:not(.logo){
     display: block;
     width: 100%;
 }
@@ -97,13 +109,13 @@ h4 {
 
 p {
     margin-bottom: 1.25rem;
-    color: var(--clr-grey-5);
+    color: var(--clr-grey-1);
     font-weight: 700;
 }
 
 label {
     text-transform: capitalize;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-family: var(--ff-primary);
     font-weight: 700;
 }
@@ -137,13 +149,18 @@ label {
     }
 }
 
-/* GLOBAL CLASSES */
+/* 
+=====================
+GLOBAL CLASSES 
+=====================
+*/
+/* NORMAL BTNS */
 .btn {
     padding: 0.375rem 0.75rem;
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing);
     background: var(--clr-primary-6);
-    border: 3px solid var(--clr-primary-6);
+    border: 2px solid var(--clr-primary-6);
     border-radius: var(--radius);
     color: var(--clr-white);
     font-family: var(--ff-secondary);
@@ -152,10 +169,10 @@ label {
     font-weight: 700;
     display: inline-block;
     cursor: pointer;
-    /* box-shadow: var(--dark-shadow); */
+    box-shadow: var(--dark-shadow);
     margin-top: 1rem;
 }
-
+/* BTNS OF CARDS */
 .card-btn {
     position: absolute;
     bottom: 0;
@@ -169,16 +186,14 @@ label {
     padding: 1rem 0;
     color: var(--clr-white);
 }
-
 .btn:hover {
     background: var(--clr-white);
     color: var(--clr-primary-6);
 }
-
 .card-btn:hover {
     opacity: 0.7;
 }
-
+/* INPUT BOXES */
 .box {
     background: var(--clr-grey-9);
     border-radius: 0.25rem;
@@ -186,26 +201,17 @@ label {
     font-family: var(--ff-primary);
     text-transform: capitalize;
     padding: 0.5rem;
-
 }
-
 .box::placeholder {
     font-weight: 800;
     opacity: 0.7;
 }
-
+/* HAS TO BE CHECKED */
 .section-head {
     margin-bottom: 3rem;
     font-size: 2rem;
 }
-
-/* .card {
-    background: var(--clr-white);
-    border-radius: var(--radius);
-    padding: 1.5rem 1rem;
-    position: relative;
-    margin: 0 auto;
-} */
+/* CARDS */
 .card {
     background: var(--clr-white);
     border-radius: var(--card-radius);
@@ -213,7 +219,7 @@ label {
     position: relative;
     margin: 0 auto;
 }
-
+/* HAS TO BE CHECKED */
 .card-head {
     background: var(--clr-primary-6);
     position: absolute;
@@ -227,19 +233,22 @@ label {
     color: var(--clr-white);
     font-size: 1.3rem;
 }
-
 /* NAVBAR */
 nav {
     background: var(--clr-white);
-    padding: 1.75rem;
+    padding: 1.5rem;
     text-transform: capitalize;
     font-size: 1rem;
     display: grid;
-    grid-template-columns: 1fr 500px 1fr;
-    
+    grid-template-columns: repeat(3,1fr);
 }
-nav h3{
+.toggle-btn{
+    position: absolute;
+    right: 30px;
+    font-size: 2rem;
     align-self: center;
+    color: var(--clr-primary-6);
+    cursor: pointer;
 }
 .pages {
     display: grid;
@@ -247,36 +256,48 @@ nav h3{
     justify-items: center;
     align-items: center;
 }
-
 .page a {
-    color: var(--clr-primary-6);
+    color: var(--clr-grey-2);
     transition: var(--transition);
     letter-spacing: var(--letter-spacing);
     font-family: var(--ff-primary);
     font-weight: 700;
 }
-
 .page a:hover {
-    color: var(--clr-primary-1);
+    color: var(--clr-primary-8);
 }
 
 /* SECTION */
 .section {
-    padding: 5rem 0;
+    padding: 5rem 0;/* HAS TO BE CHECKED */
 }
-
 .section-center {
     width: 90vw;
     margin: 0 auto;
     max-width: 1170px;
     text-align: center;
 }
-
-/* HOME */
+.section-heading{
+    margin-bottom: 5rem;
+    border-left: 8px solid var(--clr-primary-6);
+    border-right: 8px solid var(--clr-primary-6);
+    border-radius: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    /* text-transform: uppercase; */
+}
+/* 
+=====================
+HOME PAGE
+=====================
+*/
+/* HEADER SECTION */
 .header{
     background: linear-gradient(rgba(55, 188, 200,0.7),rgba(0,0,0,0.7)), url('./assets/home-header.jpg') center/cover no-repeat fixed ;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 72.8px);
     display: grid;
     align-items: center;
     justify-content: center;
@@ -285,13 +306,14 @@ nav h3{
 .header h2{
     color: var(--clr-white);
     text-transform: uppercase;
-    font-family:fantasy;
-    max-width: 400px;
+    font-family:var(--ff-headfont);
+    max-width: 420px;
     font-weight: 400;
+    margin-bottom: 40px;
+    line-height: 1.5;
 }
 .header-btn{
     background: var(--clr-white);
-    border: none;
     font-size: 2rem;
     text-transform: uppercase;
     color: var(--clr-primary-6);
@@ -307,6 +329,7 @@ nav h3{
     background: none;
     color:var(--clr-white);
 }
+/* ABOUT SECTION */
 .about-section{
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -323,45 +346,55 @@ nav h3{
     object-fit: cover/center;
     border-radius: var(--radius);
     box-shadow: var(--light-shadow);
-   
 }
 .description p{
     text-align: justify;
 }
-
+/* HAS TO BE CHECKED */
 .description h3 {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* CALCULATOR */
-.cards {
+/*
+=====================
+CALCULATOR 
+=====================
+*/
+/* FOR DISPLAYING THE RESULTS AFTER CALCULATION */
+.calculator-section{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10rem;
 }
-
-.calc-center {
-    /* display: grid; */
-    /* justify-content: center; */
-    /* justify-items: center; */
-
+.terms{
+    font-size: 0.75rem;
+    font-weight: 400;
+    display: block;
+    font-style: italic;
+    text-align: left;
 }
-
-.display-eligibility p {
+.calc-description{
+    text-align: left;
+}
+.amount{
+    color: var(--clr-primary-6);
+    display: block;
+}
+.amount-highlight{
+    color: red;
+    font-size: 1.3rem;
+}
+/* .display-eligibility p {
     text-transform: none;
     text-align: left;
     font-size: 1.6rem;
     padding: 1.5rem;
-}
-
+} */
 .calc-card {
-    /* .card-side */
     max-width: 500px;
-
 }
-
 .tabs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -369,9 +402,7 @@ nav h3{
     top: 0;
     left: 0;
     width: 100%;
-
 }
-
 .tab {
     background: var(--clr-grey-10);
     border: none;
@@ -382,12 +413,10 @@ nav h3{
     padding: 0.75rem 0;
     transition: var(--transition);
 }
-
 .tab:hover {
     opacity: 0.5;
     color: var(--clr-primary-1);
 }
-
 .tab1 {
     border-top-left-radius: var(--card-radius);
 }
@@ -395,22 +424,22 @@ nav h3{
 .tab2 {
     border-top-right-radius: var(--card-radius);
 }
-
+/* SELECTED TAB */
 .selected-tab {
     background: var(--clr-white);
     transition: var(--transition);
     /* box-shadow: var(--light-shadow); */
 }
-
+/* TO DISABLE HOVERING EFFECTS IN SELECTED TAB */
 .selected-tab:hover {
     opacity: 1;
     color: black;
 }
-
+/* TO MAKE ONE CALCULATOR FORM INVISIBLE THIS CLASS IS TOGGLED IN TYPESCRIPT */
 .calc-invisible {
     display: none;
 }   
-
+/* SINGLE INPUT ENTITY */
 .input {
     margin: 2rem 0;
     text-align: left;
@@ -420,81 +449,87 @@ nav h3{
     justify-content: center;
     align-items: center;
 }
-
+/* TO SET A MARGIN B/W INPUT TOP AND TABS(SINCE TABS ARE POSITION ABSOLUTE) */
 .input-top {
     margin-top: 5rem;
 }
-
+/* TO SET A GAP B.W INPUT AND BUTTON */
 .input-bottom {
     margin-bottom: 5rem;
 }
 
-/* APPLICATION */
+/* 
+=====================
+REGISTER
+=====================
+*/
+/* OR LOGIN OPTION */
+.or-login{
+
+}
 .or {
     opacity: 0.3;
     font-size: 1rem;
 }
-
 .login-link {
     text-transform: capitalize;
     letter-spacing: var(--letter-spacing);
     transition: var(--transition);
     color: var(--clr-primary-2);
 }
-
 .login-link:hover {
     opacity: 0.5;
 }
-
-/* REGISTER */
 .register-card {
     max-width: 800px;
     justify-self: center;
     margin-bottom: 2rem;
 }
-
+/* COLLECTION OF INPUT FIELDS */
 .register-inputs {
     max-width: 700px;
     grid-template-columns: repeat(2, 1fr);
     gap: 0 2rem;
 }
 
-/* LOGIN */
+/* 
+=====================
+LOGIN
+=====================
+*/
 .login-card {
     max-width: 400px;
-
 }
 
-/* FOOTER */
+/* 
+=====================
+FOOTER 
+=====================
+*/
 footer {
     background: #222;
     text-align: center;
     padding: 4rem;
 }
-
 .social-icons {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    justify-content: center;
+    margin-bottom: 3rem;
 }
-
 .orgname {
     color: var(--clr-primary-6);
 }
-
 .social-icon {
     color: var(--clr-white);
     font-size: 1.5rem;
     transition: var(--transition);
+    margin: 0 2rem;
 }
-
 .social-icon:hover {
     color: var(--clr-primary-6);
 }
-
 .footer-text {
     margin-top: 1.25rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: var(--clr-white);
     font-weight: 400;
+    font-family: var(--ff-secondary);
 }
