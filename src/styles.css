@@ -76,7 +76,7 @@ ul {
 a {
     text-decoration: none;
 }
-img:not(.logo){
+img:not(.nav-logo){
     display: block;
     width: 100%;
 }
@@ -117,7 +117,7 @@ label {
     text-transform: capitalize;
     font-size: 1rem;
     font-family: var(--ff-primary);
-    font-weight: 700;
+    font-weight: 550;
 }
 
 @media screen and (min-width: 800px) {
@@ -192,6 +192,8 @@ GLOBAL CLASSES
 }
 .card-btn:hover {
     opacity: 0.7;
+    background: var(--clr-primary-6);
+    color: var(--clr-white);
 }
 /* INPUT BOXES */
 .box {
@@ -203,7 +205,7 @@ GLOBAL CLASSES
     padding: 0.5rem;
 }
 .box::placeholder {
-    font-weight: 800;
+    font-weight: 600;
     opacity: 0.7;
 }
 /* HAS TO BE CHECKED */
@@ -221,17 +223,13 @@ GLOBAL CLASSES
 }
 /* HAS TO BE CHECKED */
 .card-head {
-    background: var(--clr-primary-6);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.875rem;
-    border-top-left-radius: var(--radius);
-    border-top-right-radius: var(--radius);
-    margin-bottom: 8rem;
-    color: var(--clr-white);
-    font-size: 1.3rem;
+    background: var(--clr-grey-10);
+        border: none;
+        text-transform: capitalize;
+        font-family: var(--ff-secondary);
+        font-size: 1.6rem;
+        padding: 0.75rem 0;
+        transition: var(--transition);
 }
 /* NAVBAR */
 nav {
@@ -241,6 +239,19 @@ nav {
     font-size: 1rem;
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    box-shadow: var(--dark-shadow);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+.nav-header{
+    display: grid;
+}
+.nav-logo{
+    width: 150px;
+    height: 40px;
 }
 .toggle-btn{
     position: absolute;
@@ -266,7 +277,10 @@ nav {
 .page a:hover {
     color: var(--clr-primary-8);
 }
-
+.last-page{
+    grid-template-columns: 1fr;
+    justify-items: right;
+}
 /* SECTION */
 .section {
     padding: 5rem 0;/* HAS TO BE CHECKED */
@@ -297,11 +311,15 @@ HOME PAGE
 .header{
     background: linear-gradient(rgba(55, 188, 200,0.7),rgba(0,0,0,0.7)), url('./assets/home-header.jpg') center/cover no-repeat fixed ;
     width: 100%;
-    height: calc(100vh - 72.8px);
+    height: calc(100vh - 88px);
+    /* min-height: 100vh; */
     display: grid;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+.header-span{
+    min-height: calc(100vh - 88px);
 }
 .header h2{
     color: var(--clr-white);
@@ -349,6 +367,7 @@ HOME PAGE
 }
 .description p{
     text-align: justify;
+    font-weight: 200;
 }
 /* HAS TO BE CHECKED */
 .description h3 {
@@ -367,6 +386,7 @@ CALCULATOR
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 10rem;
+    /* min-height: 100vh; */
 }
 .terms{
     font-size: 0.75rem;
@@ -441,7 +461,7 @@ CALCULATOR
 }   
 /* SINGLE INPUT ENTITY */
 .input {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     text-align: left;
     display: grid;
     grid-template-columns: repeat(2, 200px);
@@ -467,9 +487,21 @@ REGISTER
 .or-login{
 
 }
+.register-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
 .or {
     opacity: 0.3;
     font-size: 1rem;
+}
+.register-input{
+    
+    grid-template-columns: repeat(2, 150px);
 }
 .login-link {
     text-transform: capitalize;
@@ -484,12 +516,16 @@ REGISTER
     max-width: 800px;
     justify-self: center;
     margin-bottom: 2rem;
+    
 }
 /* COLLECTION OF INPUT FIELDS */
 .register-inputs {
     max-width: 700px;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0 2rem;
+    padding: 0 2rem;
+    margin: 0 auto;
 }
 
 /* 
@@ -499,8 +535,28 @@ LOGIN
 */
 .login-card {
     max-width: 400px;
+    
 }
-
+.login-inputs {
+    max-width: 700px;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+.login-input{
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    /* gap: 0.3rem 0; */
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+.login-input-top{
+    margin-top: 2rem;
+}
+.login-input-bottom{
+margin-bottom: 5rem;
+}
 /* 
 =====================
 FOOTER 
@@ -530,6 +586,6 @@ footer {
     margin-top: 1.25rem;
     text-transform: capitalize;
     color: var(--clr-white);
-    font-weight: 400;
-    font-family: var(--ff-secondary);
+    font-weight: 700;
+    font-family: var(--ff-primary);
 }

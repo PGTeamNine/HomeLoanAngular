@@ -1,9 +1,8 @@
 <nav>
-  <!-- <div class="nav-header">
-    <fa-icon class="toggle-btn" [icon]="['fas','bars']"></fa-icon>
-  <h3>logo</h3>
-  </div> -->
-  <div class="nav-header"></div>
+  <div class="nav-header">
+    <!-- <fa-icon class="toggle-btn" [icon]="['fas','bars']"></fa-icon> -->
+  <img class="nav-logo" src="../assets/LoanBuddy1.JPG" alt="">
+  </div>
   <ul class="pages">
     <li class="page">
       <a [routerLink]="['/homeLink']">home</a>
@@ -21,7 +20,11 @@
       <a [routerLink]="['/registerLink']">apply</a>
     </li>
   </ul>
-  
+  <ul class="last-page pages">
+  <li class="page">
+      <a [routerLink]="['/loginLink']">login</a>
+    </li>
+  </ul>
 </nav>
 <router-outlet></router-outlet>
 <footer>

@@ -1,10 +1,21 @@
-<div class="section">
+<div class="section header-span">
+  <h2 class="section-heading">&nbsp;register&nbsp;</h2>
   <div class="section-center">
     <!-- <h1 class="section-head">customer registration</h1> -->
     <form action="" class="card register-card">
-      <h3 class="card-head">register</h3>
+      <div class="register-tabs">
+        <div class="tab tab1">
+          step1
+        </div>
+        <div class="tab tab2">
+          step2
+        </div>
+        <div class="tab tab2">
+          step3
+        </div>
+      </div>
       <div class="register-inputs">
-        <div class="input">
+        <div class="input input-top register-input">
           <label for="name">name</label>
           <input
             type="text"
@@ -14,7 +25,7 @@
             name="name"
           />
         </div>
-        <div class="input">
+        <div class="input input-top register-input">
           <label for="email">email id</label>
           <input
             type="email"
@@ -24,7 +35,7 @@
             name="email"
           />
         </div>
-        <div class="input">
+        <div class="input register-input">
           <label for="password">password</label>
           <input
             type="password"
@@ -34,7 +45,7 @@
             name="password"
           />
         </div>
-        <div class="input">
+        <div class="input register-input">
           <label for="confirmpassword">confirm password</label>
           <input
             type="text"
@@ -44,7 +55,7 @@
             name="confirmpassword"
           />
         </div>
-        <div class="input">
+        <div class="input register-input">
           <label for="phone">phone number</label>
           <input
             type="text"
@@ -54,7 +65,7 @@
             name="phoneNo"
           />
         </div>
-        <div class="input">
+        <div class="input register-input">
           <label for="dob">date of birth</label>
           <input
             type="text"
@@ -64,7 +75,7 @@
             name="dob"
           />
         </div>
-        <div class="input">
+        <div class="input register-input">
           <label for="gender">gender</label>
           <input
             type="text"
@@ -74,7 +85,7 @@
             name="gender"
           />
         </div>
-        <div class="input">
+        <div class="input register-input">
           <label for="nationality">nationality</label>
           <input
             type="text"
@@ -84,7 +95,7 @@
             name="nationality"
           />
         </div>
-        <div class="input">
+        <div class="input register-input input-bottom">
           <label for="aadhar">aadhar number</label>
           <input
             type="text"
@@ -94,7 +105,7 @@
             name="aadharNo"
           />
         </div>
-        <div class="input">
+        <div class="input register-input input-bottom">
           <label for="pan">PAN Number</label>
           <input
             type="text"
@@ -105,12 +116,12 @@
           />
         </div>
       </div>
-      <button class="btn">register</button>
+      <button class="btn card-btn">register</button>
     </form>
     <div class="or-login">
       <p class="or">----------------------- OR -----------------------</p>
-      <p class="">already have an account?</p>
-      <a class="login-link" href="login.html">login</a>
+      <p class="">Already have an account?</p>
+      <a class="login-link" [routerLink]="['/loginLink']">login</a>
     </div>
   </div>
 </div>
