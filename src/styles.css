@@ -110,7 +110,7 @@ h4 {
 p {
     margin-bottom: 1.25rem;
     color: var(--clr-grey-1);
-    font-weight: 700;
+    font-weight: 400;
 }
 
 label {
@@ -146,6 +146,7 @@ label {
     h3,
     h4 {
         line-height: 1;
+        
     }
 }
 
@@ -367,7 +368,6 @@ HOME PAGE
 }
 .description p{
     text-align: justify;
-    font-weight: 200;
 }
 /* HAS TO BE CHECKED */
 .description h3 {
@@ -375,7 +375,42 @@ HOME PAGE
     top: 50%;
     transform: translateY(-50%);
 }
+/* OUR SERVICES SECTION */
+.service-cards{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem;
+}
+.service-section{
+    background: var(--clr-white);
+}
+.service-card{
+    background: var(--clr-grey-9);
+    border-radius: var(--card-radius);
+    transition: var(--transition);
 
+}
+.service-card:hover{
+    box-shadow: var(--dark-shadow);
+    transform: scale(1.04);
+}
+.service-description{
+    text-align: center;
+    padding: 2rem;
+}
+/* .service-card .btn{
+    margin-bottom: 2rem;
+} */
+.service-description h4{
+    text-align: center;
+    font-weight: 700;
+    color: var(--clr-primary-4);
+}
+.service-img{
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
+    
+}
 /*
 =====================
 CALCULATOR 
@@ -403,7 +438,7 @@ CALCULATOR
     display: block;
 }
 .amount-highlight{
-    color: red;
+    color: var(--clr-primary-6);
     font-size: 1.3rem;
 }
 /* .display-eligibility p {

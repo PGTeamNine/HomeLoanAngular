@@ -73,19 +73,19 @@ export class CalculatorComponent implements OnInit {
     this.displayResult.innerHTML = `
     <div>
       Monthly EMI
-       <span class="amount amount-highlight">${this.loanEmi}</span>
+       <span class="amount amount-highlight">&#X20B9;${this.loanEmi}</span>
     </div>
     <div>
       Principal amount
-       <span class="amount">${this.loan}</span>
+       <span class="amount">&#X20B9;${this.loan}</span>
     </div>
     <div>
        Interest amount
-        <span class="amount">${this.loanEmi*this.tenure}</span>
+        <span class="amount">&#X20B9;${this.loanEmi*this.tenure}</span>
     </div>
     <div>
        Loan payable
-       <span class="amount">${this.loanEmi*this.tenure - this.loan}</span>
+       <span class="amount">&#X20B9;${this.loanEmi*this.tenure - this.loan}</span>
     </div>
     <a [routerLink]="['/registerLink']"><button class="btn">apply now</button></a>
     `;
