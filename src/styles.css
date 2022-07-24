@@ -392,7 +392,7 @@ HOME PAGE
 }
 .service-card:hover{
     box-shadow: var(--dark-shadow);
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 .service-description{
     text-align: center;
