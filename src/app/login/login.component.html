@@ -1,17 +1,18 @@
 <div class="section header-span">
-  <h2 class="section-heading">&nbsp;login&nbsp;</h2>
+      <h2 class="section-heading">&nbsp;login&nbsp;</h2>
       <div class="section-center">
         <!-- <div class="cards"> -->
-          <form class="card login-card">
-            <h3 class="">customer</h3>
+          <form #loginForm="ngForm" (ngSubmit)="checkLogin()" class="card login-card">
             <div class="login-inputs">
                 <div class="login-input login-input-top">
-              <label for="email">email id</label>
+              <label for="user">user id</label>
               <input
-                type="email"
+                type="text"
                 class="box"
-                placeholder="email id"
-                id="email"
+                placeholder="user id"
+                id="user"
+                name="userId"
+                [(ngModel)]="login.customerId"
               />
               </div>
             <div class="login-input login-input-bottom">
@@ -21,9 +22,15 @@
                 class="box"
                 placeholder="password"
                 id="password"
+                name="password"
+                [(ngModel)]="login.customerPassword"
               />
               </div>
             </div>
             
-            <button class="btn card-btn">login</button>
+            <button type="submit" class="btn card-btn">login</button>
           </form>
+          New customer? <a [routerLink]="['/registerLink']">Register</a>
+          {{message}}
+      </div>
+      </div>

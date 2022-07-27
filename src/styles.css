@@ -186,6 +186,7 @@ GLOBAL CLASSES
     width: 100%;
     padding: 1rem 0;
     color: var(--clr-white);
+    box-shadow: none;
 }
 .btn:hover {
     background: var(--clr-white);
@@ -202,12 +203,12 @@ GLOBAL CLASSES
     border-radius: 0.25rem;
     border: none;
     font-family: var(--ff-primary);
-    text-transform: capitalize;
+    
     padding: 0.5rem;
+    display: block;
 }
 .box::placeholder {
     font-weight: 600;
-    opacity: 0.7;
 }
 /* HAS TO BE CHECKED */
 .section-head {
@@ -432,14 +433,102 @@ CALCULATOR
 }
 .calc-description{
     text-align: left;
+
+}
+.description-output{
+    display: grid;
+}
+.description-output div{
+    font-weight: 200;
+}
+.percentage{
+    color: var(--clr-white);
+    text-align: center;
+    /* height: 100%; */
+    /* box-shadow: var(--dark-shadow); */
+    display: none;
+    width: 75%;
+}
+.principal{
+    padding: 2rem;
+    background: rgb(36, 60, 28);
+    box-shadow: var(--dark-shadow);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    animation: percentFromTop 3s ease-out 1;
+}
+.interest{
+    padding: 2rem;
+    background: rgb(247, 129, 3);
+    box-shadow: var(--dark-shadow);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    animation: percentFromBottom 3s ease-out 1;
+}
+@keyframes slowMotionText {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes percentFromTop {
+    0%{
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+    /* 25% {
+        transform: translateY(-200px);
+        opacity: 0.25;
+    }
+    50% {
+        transform: translateY(-50px);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(-20px);
+        opacity: 0.75;
+    } */
+                                                        100% {
+                                                            transform: translateY(0px);
+                                                            opacity: 1;
+                                                        }
+}
+@keyframes percentFromBottom {
+    0% {
+        transform: translateY(1000px);
+        opacity: 0;
+    }
+
+    /* 25% {
+        transform: translateY(-20px);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.5;
+    }
+
+    75% {
+        transform: translateY(-20px);
+        opacity: 0.75;
+    } */
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }
 .amount{
     color: var(--clr-primary-6);
     display: block;
+    font-size: 1.5rem;
 }
+
 .amount-highlight{
-    color: var(--clr-primary-6);
-    font-size: 1.3rem;
+    
 }
 /* .display-eligibility p {
     text-transform: none;
@@ -518,49 +607,75 @@ CALCULATOR
 REGISTER
 =====================
 */
-/* OR LOGIN OPTION */
-.or-login{
+.register-section{
+    padding: 3rem 0;
+    /* height: calc(100vh - 88px); */
+    min-height: calc(100vh - 88px);
+}
+.reg-form{
+    padding: 2rem;
+    background: var(--clr-white);
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto 1rem auto;
 
 }
-.register-tabs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+
+.reg-form .box{
+    width: 250px;
 }
-.or {
-    opacity: 0.3;
-    font-size: 1rem;
-}
-.register-input{
-    
-    grid-template-columns: repeat(2, 150px);
-}
-.login-link {
-    text-transform: capitalize;
-    letter-spacing: var(--letter-spacing);
-    transition: var(--transition);
-    color: var(--clr-primary-2);
-}
-.login-link:hover {
-    opacity: 0.5;
-}
-.register-card {
-    max-width: 800px;
-    justify-self: center;
-    margin-bottom: 2rem;
-    
-}
-/* COLLECTION OF INPUT FIELDS */
-.register-inputs {
-    max-width: 700px;
+.form-inputs{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0 2rem;
-    padding: 0 2rem;
+    justify-items: center;
+    gap: 1rem;
+}
+.form-input{
+    /* margin: 0.75rem; */
+    text-align: left;
+    max-width: 250px;
+}
+.form-input small{
+    color: red;
+}
+.hideMessage{
+    display: none;
+}
+
+
+.select{
+    font-weight: 600;
+    font-family: var(--ff-primary);
+    text-transform: capitalize;
+}
+/* .register-center{
     margin: 0 auto;
+    width: 90vw;
+    max-width: 1170px;
+    text-align: center;
+} */
+.register-heading{
+    margin-bottom: 2rem;
+}
+.errorInput{
+    box-shadow: inset 0px 0px 4px 1px rgba(240, 14, 14, 0.58);
+}
+.successMsgDisabled{
+    display: none;
+    
+}
+.successMsgEnabled{
+    display: block;
+    width: 300px;
+    height: 300px;
+    background: var(--clr-white);
+    border-radius: var(--card-radius);
+    position: absolute;
+    padding: 2rem;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 /* 
@@ -570,7 +685,7 @@ LOGIN
 */
 .login-card {
     max-width: 400px;
-    
+    margin-bottom: 1rem;
 }
 .login-inputs {
     max-width: 700px;

@@ -9,8 +9,15 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class CalculatorComponent implements OnInit {
   title = 'Services';
+  addCommas = new Intl.NumberFormat('en-IN');
   x:any; // (1+r)^n
+  calcDesc:any;
   displayResult:any ; // display calculted output
+  percentageBar:any;
+  principal:any;
+  interest:any;
+  principalPercent:any;
+  interestPercent:any;
   formdata:any; // Data of ELIGIBILTY Form 
   formdata1:any; // Data of EMI Form 
   income:any; // Monthly income input of ELIGIBILTY Form
@@ -19,18 +26,21 @@ export class CalculatorComponent implements OnInit {
   roi1:any; // Rate of interest input of EMI Form
   tenure:any; // Tenure input of EMI Form
   loanEligibility:any; // Calculated Maximum eligible loan 
+  loanPayable:any;
+
   loanEmi:any; // Calculated EMI
   selected1= ''; // When 1st(Eligibility) tab is selected this gets the value 'selected-tab'
   selected2= ''; // When 2st(EMI) tab is selected this gets the value 'selected-tab'
   visible1=''; // To make ELIGIBILTY FORM invisible wheck emi tab is clicked
   visible2=''; // To make EMI FORM invisible wheck eligibilty tab is clicked
-
+  
   // On clicking ELIGIBILITY TAB
   public onClick1(){
     this.selected1 = 'selected-tab'
     this.selected2 = ''
     this.visible1=''
     this.visible2='calc-invisible'
+    this.displayResult.innerHTML=``;
   }
   // On clicking EMI TAB
   public onClick2(){
@@ -65,34 +75,64 @@ export class CalculatorComponent implements OnInit {
     
     this.x = Math.pow((1+this.roi1),this.tenure);
     // console.log(this.x);
-    
     this.loanEmi = this.loan*this.roi1*(this.x/(this.x-1));
+    this.loanPayable = this.loanEmi*this.tenure;
     // console.log(Math.round(this.loanEmi));
+    this.loanPayable = Math.round(this.loanPayable);
     this.loanEmi = Math.round(this.loanEmi);
+    this.principalPercent = Math.round((this.loan/this.loanPayable)*100);
+    this.interestPercent = Math.round((this.loanPayable-this.loan)/(this.loanPayable)*100);
+    console.log(this.principalPercent);
+    console.log(this.interestPercent);
     
     this.displayResult.innerHTML = `
     <div>
       Monthly EMI
-       <span class="amount amount-highlight">&#X20B9;${this.loanEmi}</span>
+       <span class="amount amount-highlight">&#X20B9;${this.addCommas.format(this.loanEmi)}</span>
     </div>
     <div>
       Principal amount
-       <span class="amount">&#X20B9;${this.loan}</span>
+       <span style="color:rgb(32, 115, 2);" class="amount">&#X20B9;${this.addCommas.format(this.loan)}</span>
     </div>
     <div>
        Interest amount
-        <span class="amount">&#X20B9;${this.loanEmi*this.tenure}</span>
+        <span style="color:rgb(247, 129, 3);" class="amount">&#X20B9;${this.addCommas.format(this.loanPayable-this.loan)}</span>
     </div>
     <div>
        Loan payable
-       <span class="amount">&#X20B9;${this.loanEmi*this.tenure - this.loan}</span>
+       <span class="amount">&#X20B9;${this.addCommas.format(this.loanPayable)}</span>
     </div>
     <a [routerLink]="['/registerLink']"><button class="btn">apply now</button></a>
     `;
+    this.displayResult.style=`
+      animation: slowMotionText 3s ease-out 1;
+    `
+    this.calcDesc.style=`
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+    `;
+    this.percentageBar.style=`
+    display: block;
+    `
+    this.percentageBar.innerHTML = `
+        <div class="principal"><h3>${this.principalPercent}%</h3></div>
+        <div class="interest"><h3>${this.interestPercent}%</h3></div>
+    `;
+    this.principal = document.querySelector('.principal');
+    this.interest = document.querySelector('.interest');
+    this.principal.style=`
+      height:${this.principalPercent}%;
+    `
+    this.interest.style=`
+      height:${this.interestPercent}%;
+    `
   }
   // When this class gets initialized 
   ngOnInit():void{
-    this.displayResult=  document.querySelector('.calc-description');
+    this.displayResult=  document.querySelector('.description-output');
+    this.calcDesc=  document.querySelector('.calc-description');
+    this.percentageBar = document.querySelector('.percentage');
     this.selected1 = 'selected-tab'
     this.visible2='calc-invisible'
     this.formdata = new FormGroup({

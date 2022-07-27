@@ -1,127 +1,180 @@
-<div class="section header-span">
-  <h2 class="section-heading">&nbsp;register&nbsp;</h2>
+
+<div class="section register-section">
+  <h2 class="register-heading section-heading">&nbsp;register&nbsp;</h2>
   <div class="section-center">
-    <!-- <h1 class="section-head">customer registration</h1> -->
-    <form action="" class="card register-card">
-      <div class="register-tabs">
-        <div class="tab tab1">
-          step1
-        </div>
-        <div class="tab tab2">
-          step2
-        </div>
-        <div class="tab tab2">
-          step3
-        </div>
-      </div>
-      <div class="register-inputs">
-        <div class="input input-top register-input">
-          <label for="name">name</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="name"
-            id="name"
-            name="name"
-          />
-        </div>
-        <div class="input input-top register-input">
-          <label for="email">email id</label>
-          <input
-            type="email"
-            class="box"
-            placeholder="email id"
-            id="email"
-            name="email"
-          />
-        </div>
-        <div class="input register-input">
-          <label for="password">password</label>
-          <input
-            type="password"
-            class="box"
-            placeholder="password"
-            id="password"
-            name="password"
-          />
-        </div>
-        <div class="input register-input">
-          <label for="confirmpassword">confirm password</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="confirm password"
-            id="confirmpassword"
-            name="confirmpassword"
-          />
-        </div>
-        <div class="input register-input">
-          <label for="phone">phone number</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="phone number"
-            id="phone"
-            name="phoneNo"
-          />
-        </div>
-        <div class="input register-input">
-          <label for="dob">date of birth</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="date of birth"
-            id="dob"
-            name="dob"
-          />
-        </div>
-        <div class="input register-input">
-          <label for="gender">gender</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="gender"
-            id="gender"
-            name="gender"
-          />
-        </div>
-        <div class="input register-input">
-          <label for="nationality">nationality</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="nationality"
-            id="nationality"
-            name="nationality"
-          />
-        </div>
-        <div class="input register-input input-bottom">
-          <label for="aadhar">aadhar number</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="aadhar number"
-            id="aadhar"
-            name="aadharNo"
-          />
-        </div>
-        <div class="input register-input input-bottom">
-          <label for="pan">PAN Number</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="PAN Number"
-            id="pan"
-            name="panNo"
-          />
-        </div>
-      </div>
-      <button class="btn card-btn">register</button>
-    </form>
-    <div class="or-login">
-      <p class="or">----------------------- OR -----------------------</p>
-      <p class="">Already have an account?</p>
-      <a class="login-link" [routerLink]="['/loginLink']">login</a>
+    <div [class.successMsgEnabled]="showSuccess" class="successMsgDisabled">
+  <h3>registration successful</h3>
+  <p>Please check your mail to see your login credentials</p>
+  <button [routerLink]="['/loginLink']" class="btn">login</button>
+</div>
+  <!-- <form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)" class="reg-form card">
+    <div class="form-inputs">
+      <div class="form-input">
+      <input class="box" type="text" #name="ngModel" required name="customerName" placeholder="name" [class.errorInput]="name.invalid && name.touched" [(ngModel)]="customer.customerName">
+      <small [class.hideMessage]="name.valid || name.untouched">Name is required</small>
     </div>
+    <div class="form-input">
+      <input class="box" type="email" #email="ngModel" required name="customerEmail" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [class.errorInput]="email.invalid && email.touched" [(ngModel)]="customer.customerEmail">
+      <div [class.hideMessage]="email.valid || email.untouched" *ngIf="email.errors && (email.invalid || email.touched)">
+        <small *ngIf="email.errors.required">Email is required</small>
+        <small *ngIf="email.errors.pattern">Email you eneterd is invalid</small>
+      </div>
+    </div>
+    <div class="form-input">
+      <input class="box" type="date" #dob="ngModel" required name="customerDob" placeholder="dob" [class.errorInput]="dob.invalid && dob.touched" [(ngModel)]="customer.customerDob">
+    </div>
+    <div class="form-input">
+      <input class="box" type="password" #password="ngModel" required name="customerPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="password" [class.errorInput]="password.invalid && password.touched" [(ngModel)]="customer.customerPassword">
+      <div [class.hideMessage]="password.valid || password.untouched" *ngIf="password.errors && (password.invalid || password.touched)">
+        <small *ngIf="password.errors.required">Password is required</small>
+        <small *ngIf="password.errors.pattern">Password you eneterd is invalid</small>
+      </div>
+    </div>
+    <div class="form-input">
+      <input class="box" type="text" #aadharNo="ngModel" required name="aadharNumber" placeholder="Aadhar Number" pattern="[0-9]{12}$" [class.errorInput]="aadharNo.invalid && aadharNo.touched" [(ngModel)]="customer.aadharNumber">
+      <div [class.hideMessage]="aadharNo.valid || aadharNo.untouched" *ngIf="aadharNo.errors && (aadharNo.invalid || aadharNo.touched)">
+        <small *ngIf="aadharNo.errors.required">Aadhar Number is required</small>
+        <small *ngIf="aadharNo.errors.pattern">Invalid Aadhar Number</small>
+      </div>
+    </div>
+    <div class="form-input">
+      <select #gender="ngModel" (blur)="validateGType(gender.value)" (change)="validateGType(gender.value)" [class.errorInput]="gender.gTypeHasError && gender.touched" [(ngModel)]="selectedGender" name="gender" class="box" >
+        <option class="select" value="">Select your gender</option>
+        <option class="select" value="Male">Male</option>
+        <option class="select" value="Female">Female</option>
+        <option class="select" value="Other">Other</option>
+      </select>
+      <small class="errorMessage" [class.hideMessage]="!gTypeHasError || gender.untouched">Gender is required</small>
+    </div>
+    <div class="form-input">
+      <input class="box" type="text" #panNo="ngModel" required name="panNumber" placeholder="Pan Number" pattern="([A-Z]){5}([0-9]){4}([A-Z]){1}$" [class.errorInput]="panNo.invalid && panNo.touched" [(ngModel)]="customer.panNumber">
+      <div [class.hideMessage]="panNo.valid || panNo.untouched" *ngIf="panNo.errors && (panNo.invalid || panNo.touched)">
+        <small *ngIf="panNo.errors.required">Pan number is required</small>
+        <small *ngIf="panNo.errors.pattern">Invalid Pan number</small>
+      </div>
+    </div>
+    <div class="form-input">
+      <input class="box" type="text" #phoneNo="ngModel" required name="phoneNumber" placeholder="phone number" pattern="[0-9]{10}$" [class.errorInput]="phoneNo.invalid && phoneNo.touched" [(ngModel)]="customer.phoneNumber">
+      <div [class.hideMessage]="phoneNo.valid || phoneNo.untouched" *ngIf="phoneNo.errors && (phoneNo.invalid || phoneNo.touched)">
+        <small *ngIf="phoneNo.errors.required">Phone number is required</small>
+        <small *ngIf="phoneNo.errors.pattern">Invalid Phone number</small>
+      </div>
+    </div>
+    <div class="form-input">
+      <input class="box" type="text" #oType="ngModel" required name="organizationType" placeholder="organization type" [class.errorInput]="oType.invalid && oType.touched" [(ngModel)]="customer.organizationType">
+    </div>
+    <div class="form-input">
+      <select #eType="ngModel" (blur)="validateEType(eType)" (change)="validateEType(eType.value)" [(ngModel)]="customer.employmentType" name="employmentType" [class.errorInput]="eTypeHasError && eType.touched" class="box">
+        <option class="select"  value="">employment type</option>
+        <option class="select" name="employmentType">salaried</option>
+        <option class="select" name="employmentType">self-employed</option>
+      </select>
+      <small class="errorMessage" [class.hideMessage]="!eTypeHasError || eType.untouched">Please select an employment type</small>
+    </div>
+    <div class="form-input input-bottom">
+      <input class="box" type="number" #rAge="ngModel" required name="retirementAge" placeholder="retirement age" pattern="([5][0-9])|([6][0])" [class.errorInput]="rAge.invalid && rAge.touched" [(ngModel)]="customer.retirementAge">
+      <div [class.hideMessage]="rAge.valid || rAge.untouched" *ngIf="rAge.errors && (rAge.invalid || rAge.touched)">
+        <small *ngIf="rAge.errors.required">Retirement age is required</small>
+        <small *ngIf="rAge.errors.pattern">Invalid retirement age</small>
+      </div>
+    </div>
+    <div class="form-input input-bottom">
+      <input class="box" type="number" #income="ngModel" required name="customerIncome" placeholder="customer income" [class.errorInput]="income.invalid && income.touched" [(ngModel)]="customer.customerIncome">
+        <small [class.hideMessage]="income.valid || income.untouched">Income is required</small>
+    </div>
+
+  </div>  
+  <button type="submit" class="btn card-btn">submit</button>
+  </form> -->
+  <form [class.successMsgDisabled]="hideForm" (ngSubmit)="onSubmit()" [formGroup]="regForm" class="reg-form card">
+    <div class="form-inputs">
+      <div class="form-input">
+      <input [class.errorInput]="regForm.get('customerName').invalid && regForm.get('customerName').touched" formControlName="customerName" class="box" type="text" placeholder="Name">
+      <small [class.hideMessage]="regForm.get('customerName').valid || regForm.get('customerName').untouched">Name is required</small>
+    </div>
+    <div class="form-input">
+      <input [class.errorInput]="regForm.get('customerEmail').invalid && regForm.get('customerEmail').touched" formControlName="customerEmail" class="box" 
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      type="email"placeholder="Email">
+      <div *ngIf="regForm.get('customerEmail').invalid && regForm.get('customerEmail').touched">
+          <small *ngIf="regForm.get('customerEmail').errors.required">Email is required</small>
+        <small *ngIf="regForm.get('customerEmail').errors.pattern">Email you eneterd is invalid</small>
+      </div>
+
+    </div>
+    <div class="form-input">
+      <input [class.errorInput]="regForm.get('customerDob').invalid && regForm.get('customerDob').touched" formControlName="customerDob" class="box" type="date" placeholder="Date of birth" >
+    </div>
+    <div class="form-input">
+      <input [class.errorInput]="regForm.get('customerPassword').invalid && regForm.get('customerPassword').touched" formControlName="customerPassword"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="box" type="password" required placeholder="Password" >
+     <div *ngIf="(regForm.get('customerPassword').invalid && regForm.get('customerPassword').touched)">
+        <small *ngIf="regForm.get('customerPassword').errors.required">Password is required</small>
+        <small *ngIf="regForm.get('customerPassword').errors.pattern">Password you eneterd is invalid</small>
+      </div>
+    </div>
+    <div class="form-input">
+      <input [class.errorInput]="regForm.get('aadharNumber').invalid && regForm.get('aadharNumber').touched" formControlName="aadharNumber" class="box" type="text"
+      pattern="[0-9]{12}$"
+       placeholder="Aadhar Number" >
+      <div *ngIf="regForm.get('aadharNumber').invalid && regForm.get('aadharNumber').touched">
+        <small *ngIf="regForm.get('aadharNumber').errors.required">Aadhar Number is required</small>
+        <small *ngIf="regForm.get('aadharNumber').errors.pattern">Invalid Aadhar Number</small>
+      </div>
+    </div>
+    <div class="form-input">
+      <select [class.errorInput]="regForm.get('customerGender').invalid && regForm.get('customerGender').touched" formControlName="customerGender" class="box" >
+        <option class="select" value="">Select your gender</option>
+        <option class="select" value="MALE">Male</option>
+        <option class="select" value="FEMALE">Female</option>
+        <option class="select" value="OTHER">Other</option>
+      </select>
+      <small class="errorMessage" [class.hideMessage]="regForm.get('customerGender').valid || regForm.get('customerGender').untouched">Gender is required</small>
+    </div>
+    <div class="form-input">
+      <input [class.errorInput]="regForm.get('panNumber').invalid && regForm.get('panNumber').touched" 
+      pattern="([A-Z]){5}([0-9]){4}([A-Z]){1}$" formControlName="panNumber" class="box" type="text" placeholder="Pan Number" >
+      <div *ngIf="regForm.get('panNumber').invalid && regForm.get('panNumber').touched">
+        <small *ngIf="regForm.get('panNumber').errors.required">Pan Number is required</small>
+        <small *ngIf="regForm.get('panNumber').errors.pattern">Invalid Pan Number</small>
+      </div>
+    </div>
+    <div class="form-input">
+      <input [class.errorInput]="regForm.get('phoneNumber').invalid && regForm.get('phoneNumber').touched" 
+      pattern="[0-9]{10}$" formControlName="phoneNumber" class="box" type="text" placeholder="Phone number" >
+      <div *ngIf="regForm.get('phoneNumber').invalid && regForm.get('phoneNumber').touched">
+        <small *ngIf="regForm.get('phoneNumber').errors.required">Phone Number is required</small>
+        <small *ngIf="regForm.get('phoneNumber').errors.pattern">Invalid Phone Number</small>
+      </div>
+    </div>
+    <div class="form-input">
+      <input [class.errorInput]="regForm.get('organizationType').invalid && regForm.get('organizationType').touched" formControlName="organizationType" class="box" type="text" placeholder="Organization type" >
+    </div>
+    <div class="form-input">
+      <select [class.errorInput]="regForm.get('employmentType').invalid && regForm.get('employmentType').touched" formControlName="employmentType" class="box">
+        <option class="select" value="">Employment type</option>
+        <option class="select" name="employmentType" value="SALARIED">salaried</option>
+        <option class="select" name="employmentType" value="SELF_EMPLOYED">self-employed</option>
+      </select>
+     <small class="errorMessage" [class.hideMessage]="regForm.get('employmentType').valid || regForm.get('employmentType').untouched">Employment type is required</small>
+    </div>
+    <div class="form-input input-bottom">
+      <input [class.errorInput]="regForm.get('retirementAge').invalid && regForm.get('retirementAge').touched"
+      pattern="([5][0-9])|([6][0])" formControlName="retirementAge" class="box" type="number" placeholder="Retirement age">
+      <div *ngIf="regForm.get('retirementAge').invalid && regForm.get('retirementAge').touched">
+        <small *ngIf="regForm.get('retirementAge').errors.required">Retirement age is required</small>
+        <small *ngIf="regForm.get('retirementAge').errors.pattern">Invalid Retirement age</small>
+      </div>
+    </div>
+    <div class="form-input input-bottom">
+      <input [class.errorInput]="regForm.get('customerIncome').invalid && regForm.get('customerIncome').touched" formControlName="customerIncome" class="box" type="number" placeholder="Customer income">
+      <div *ngIf="regForm.get('customerIncome').invalid && regForm.get('customerIncome').touched">
+              <small *ngIf="regForm.get('customerIncome').errors.required">Income is required</small>
+            </div>
+    </div>
+  </div>  
+  <button type="submit" class="btn card-btn">submit</button>
+  </form>
+  Already a customer? <a [routerLink]="['/loginLink']">Login</a>
   </div>
 </div>
