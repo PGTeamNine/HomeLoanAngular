@@ -604,6 +604,68 @@ CALCULATOR
 
 /* 
 =====================
+ABOUT
+=====================
+*/
+.about-header{
+    width: 100%;
+    /* height: calc(100vh - 88px); */
+    min-height: calc(100vh - 88px);
+            display: grid;
+            align-items: center;
+            background: var(--clr-white);
+
+}
+.about-header h2{
+    max-width: 550px;
+    text-transform: none;
+    
+    position: absolute;
+    margin-left: 7rem;
+    line-height: 1.5;
+    font-weight: 200;
+}
+.about-header span{
+    font-weight: bold;
+}
+.about-img{
+    background: linear-gradient(rgba(55, 188, 200, 0.7), rgba(0, 0, 0, 0.7)),
+            url('./assets/about-header-1.jpg') top/cover no-repeat fixed;
+        clip-path: polygon(100% 0, 100% 50%, 100% 100%, 50% 100%, 35% 0%, 50% 0%);
+        width: 100%;
+        min-height: calc(100vh - 88px);
+        
+}
+.values{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+    justify-items: center;
+}
+.value-container{
+    background: var(--clr-white);
+    width: 250px;
+    height: 250px;
+    border-radius: var(--card-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--dark-shadow);
+    
+}
+.value-container p{
+    font-size: 1.75rem;
+    text-transform: capitalize;
+    font-weight: 200;
+}
+.value-container img{
+    width: 70px;
+    height: 70px;
+}
+
+/* 
+=====================
 REGISTER
 =====================
 */
