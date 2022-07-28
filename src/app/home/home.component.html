@@ -13,7 +13,7 @@
     <div class="description">
       <p>
         Buying a home loan is still a dream for many. It is a very cumbersome
-        task and involves a lot of financial planning. We LoginBuddy are here to help
+        task and involves a lot of financial planning. We LoanBuddy are here to help
         and guide you into converting your dreams into reality. We stand by the
         motto “Live in the Present” and hence we want to make your present a
         place where you achieve your dreams and goals. We have a wonderful
@@ -37,7 +37,7 @@
           <h4>
             calculator
           </h4><p>Interested in availing a home loan, but unsure of the EMIs that you need to pay? Check out LoanBuddy's Eligibility calculator.</p>
-          <a [routerLink]="['calculatorLink']"><button  class="btn">calculator</button></a></div>
+          <a [routerLink]="['/calculatorLink']"><button  class="btn">calculator</button></a></div>
           
       </div>
       <!-- SINGLE CARD -->
@@ -47,7 +47,7 @@
           <h4>
             home loans
           </h4><p>Buying one’s own home is a dream come true.  We are there to assist you at every step of your Home Loan process.</p>
-        <a [routerLink]="['calculatorLink']"><button  class="btn">apply</button></a></div>
+        <a [routerLink]="['/registerLink']"><button  class="btn">apply</button></a></div>
 
       </div>
       <!-- SINGLE CARD -->
@@ -57,10 +57,30 @@
           <h4>
             tracker
           </h4><p>With the LoanBuddy Tracker, you can track the status of your application. This keeps you updated on a regular basis. </p>
-          <a [routerLink]="['calculatorLink']"><button class="btn">track</button></a>
+          <a [routerLink]="['/loginLink']"><button class="btn">track</button></a>
         </div>
           
       </div>
     </div>
   </div>
 </div>
+<div class="section">
+    <h2 class="section-heading">&nbsp;contact us&nbsp;</h2>
+    <div class="section-center">
+      <form class="card contact-form" action="">
+        <div class="inputs">
+          <div class="contact-input">
+          <input type="text" class="box" placeholder="name">
+        </div>
+        <div class="contact-input">
+          <input type="email" class="box" placeholder="email">
+        </div>
+        <div class="contact-input">
+          <textarea class="box" name="" id="" cols="30" placeholder="message" rows="10"></textarea>
+        </div>
+        <button class="btn">submit</button>
+        </div>
+      </form>
+    </div>
+</div>
+

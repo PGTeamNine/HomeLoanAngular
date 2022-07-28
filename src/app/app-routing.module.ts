@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { HowtoapplyComponent } from './howtoapply/howtoapply.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path:'aboutLink',
     component:AboutComponent
+  },
+  {
+    path:'howLink',
+    component:HowtoapplyComponent
   },
   {
     path:'**',

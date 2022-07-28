@@ -1,6 +1,6 @@
 
 <div class="section register-section">
-  <h2 class="register-heading section-heading">&nbsp;register&nbsp;</h2>
+  <h2 [class.successMsgDisabled]="hideForm" class="register-heading section-heading">&nbsp;register&nbsp;</h2>
   <div class="section-center">
     <div [class.successMsgEnabled]="showSuccess" class="successMsgDisabled">
   <h3>registration successful</h3>
@@ -175,6 +175,9 @@
   </div>  
   <button type="submit" class="btn card-btn">submit</button>
   </form>
-  Already a customer? <a [routerLink]="['/loginLink']">Login</a>
+  <div [class.successMsgDisabled]="hideForm">
+    Already a customer? <a [routerLink]="['/loginLink']">Login</a>
+  </div>
+    
   </div>
 </div>

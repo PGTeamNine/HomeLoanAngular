@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   // })
   
   regForm = this.fb.group({
-    customerName: ['Customer',[Validators.required]],
+    customerName: ['',[Validators.required]],
     customerEmail: ['cust@gmail.com',Validators.required],
     customerDob: ['2022-07-21',Validators.required],
     customerPassword: ['@Dddd1234',Validators.required],
@@ -55,8 +55,8 @@ export class RegisterComponent implements OnInit {
         this.message = JSON.parse(JSON.stringify(msg));
         console.log(this.message);
         
-        console.log(this.message=="Signup successfull");
-        if(this.message==="Signup successfull"){
+        console.log(this.message=="Signup successful");
+        if(this.message==="Signup successful"){
           this.showSuccess = true;
           this.hideForm = true;
         }

@@ -1,7 +1,9 @@
 <nav>
-  <div class="nav-header">
-    <!-- <fa-icon class="toggle-btn" [icon]="['fas','bars']"></fa-icon> -->
-  <a [routerLink]="['/homeLink']"><img class="nav-logo" src="../assets/LoanBuddy1.JPG" alt=""></a>
+  <div class="nav-center">
+    <div class="nav-header">
+      <a [routerLink]="['/homeLink']"><img class="nav-logo" src="../assets/LoanBuddy1.JPG" alt=""></a>
+      <!-- <a class="nav-logo" href="">LoanBuddy</a> -->
+      <fa-icon class="toggle-btn" [icon]="['fas','bars']"></fa-icon>
   </div>
   <ul class="pages">
     <li class="page">
@@ -17,14 +19,18 @@
       <a [routerLink]="['/calculatorLink']">services</a>
     </li>
     <li class="page">
+      <a [routerLink]="['/howLink']">how to apply</a>
+    </li>
+  </ul>
+  <ul class="last-page">
+    <li class="page">
       <a [routerLink]="['/registerLink']">apply</a>
     </li>
+    <li class="page">
+        <a id="login" [routerLink]="['/loginLink']">login</a>
+      </li>
   </ul>
-  <ul class="last-page pages">
-  <li class="page">
-      <a id="login" [routerLink]="['/loginLink']">login</a>
-    </li>
-  </ul>
+  </div>
 </nav>
 <router-outlet></router-outlet>
 <footer>
