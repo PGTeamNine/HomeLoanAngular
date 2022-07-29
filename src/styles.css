@@ -498,7 +498,7 @@ HOME PAGE
 
 /*
 =====================
-CALCULATOR 
+SERVICES
 =====================
 */
 /* FOR DISPLAYING THE RESULTS AFTER CALCULATION */
@@ -685,7 +685,22 @@ CALCULATOR
 .input-bottom {
     margin-bottom: 5rem;
 }
-
+/* APPLY SECTION */
+.apply-section{
+    background: var(--clr-white);
+    
+}
+.apply-section p{
+    margin: 0 auto 1rem auto;
+    max-width: 700px;
+text-align:justify;
+}
+/* TRACK SECTION */
+.track-section p{
+    max-width: 700px;
+    margin: 0 auto 1rem auto;
+    text-align:justify;
+}
 /* 
 =====================
 ABOUT

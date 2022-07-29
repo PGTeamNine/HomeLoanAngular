@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
+import { Feedback } from './feedback';
 import { Login } from './login';
 
 @Injectable({
@@ -10,13 +11,17 @@ import { Login } from './login';
 export class RegisterService {
 
   constructor(private httpClient:HttpClient) { }
-  
+  // LOGIN
   loginCustomer(login:Login):Observable<boolean>{
-    return this.httpClient.post<boolean>("http://localhost:9090/customer/login",login);
+    return this.httpClient.post<boolean>("http://localhost:9090/customers/login",login);
   }
-
+// REGISTER
   signup(customer:Customer):Observable<String>{
-    return this.httpClient.post("http://localhost:9090/customer/signup",customer,{responseType: 'text'});
+    return this.httpClient.post("http://localhost:9090/customers/signup",customer,{responseType: 'text'});
+  }
+// SEND FEEDBACK
+  sendFeedback(feedback:Feedback){
+
   }
 
 }

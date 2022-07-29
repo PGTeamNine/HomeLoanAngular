@@ -67,18 +67,18 @@
 <div class="section">
     <h2 class="section-heading">&nbsp;contact us&nbsp;</h2>
     <div class="section-center">
-      <form class="card contact-form" action="">
+      <form #feedbackForm (submit)="onSubmit()" class="card contact-form" action="">
         <div class="inputs">
           <div class="contact-input">
-          <input type="text" class="box" placeholder="name">
+          <input type="text" formControlName="name" class="box" placeholder="name">
         </div>
         <div class="contact-input">
-          <input type="email" class="box" placeholder="email">
+          <input type="email" formControlName="email" class="box" placeholder="email">
         </div>
         <div class="contact-input">
-          <textarea class="box" name="" id="" cols="30" placeholder="message" rows="10"></textarea>
+          <textarea formControlName="message" class="box input-bottom" name="" id="" cols="30" placeholder="message" rows="10"></textarea>
         </div>
-        <button class="btn">submit</button>
+        <button type="submit" class="card-btn btn">submit</button>
         </div>
       </form>
     </div>

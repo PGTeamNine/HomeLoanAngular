@@ -3,12 +3,12 @@ customerName:string;
 customerEmail:string;   
 customerPassword:string;
 customerDob:string;     
-customerGender:string;  
+// customerGender:string;  
 aadharNumber:string;    
 panNumber:string;       
 phoneNumber:string; 
 employmentType:string;    
-organizationType:string;
-retirementAge:number;   
+organizationName:string;
+// retirementAge:number;   
 customerIncome:number;  
 }

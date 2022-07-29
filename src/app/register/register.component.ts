@@ -31,13 +31,13 @@ export class RegisterComponent implements OnInit {
   
   regForm = this.fb.group({
     customerName: ['',[Validators.required]],
-    customerEmail: ['cust@gmail.com',Validators.required],
+    customerEmail: ['abinandan2018@gmail.com',Validators.required],
     customerDob: ['2022-07-21',Validators.required],
     customerPassword: ['@Dddd1234',Validators.required],
     aadharNumber: ['789456123012',Validators.required],
     panNumber: ['EEEEE1111E',Validators.required],
     phoneNumber: ['9999999999',Validators.required],
-    organizationType: ['ddd',Validators.required],
+    organizationName: ['ddd',Validators.required],
     employmentType: ['',Validators.required],
     retirementAge: ['50',Validators.required],
     customerGender: ['',Validators.required],
