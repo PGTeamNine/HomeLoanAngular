@@ -1,3 +1,5 @@
+
+  <div [class.showLoading]="showLoading" class="loading"><h3>loading...</h3></div>
 <div class="section header-span">
       <h2 class="section-heading">&nbsp;login&nbsp;</h2>
       <div class="section-center">
@@ -30,7 +32,7 @@
             
             <button type="submit" class="btn card-btn">login</button>
           </form>
-          New customer? <a [routerLink]="['/registerLink']">Register</a>
-          {{message}}
+          New customer? <a [routerLink]="['/registerLink']">Register</a><br>
+          <p style="color: red;">{{message}}</p>
       </div>
       </div>

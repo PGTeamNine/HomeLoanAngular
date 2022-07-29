@@ -762,8 +762,28 @@ ABOUT
     width: 70px;
     height: 70px;
 }
-.experience{
+.values-section{
     background: var(--clr-white);
+    
+}
+.experiences{
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 3rem; */
+    max-width: 720px;
+    margin: 0 auto;
+}
+.experience{
+    text-align: left;
+    margin-bottom: 1rem;
+    
+}
+.experience p{
+    display: inline ;
+
+}
+.experience fa-icon{
+    color: var(--clr-primary-6);
 }
 .faqs{
     background: var(--clr-white);
@@ -789,7 +809,7 @@ ABOUT
     color: var(--clr-white);
 }
 .faq{
-    background: var(--clr-grey-9);
+    background: var(--clr-white);
     padding: 1rem;
     border-radius: var(--card-radius);
     margin-bottom: 1rem;
@@ -910,6 +930,27 @@ LOGIN
 }
 .login-input-bottom{
 margin-bottom: 5rem;
+}
+.loading{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.7;
+    z-index: 2;
+    text-align: center;
+    
+}
+.loading h3{
+    margin: auto 0 ;
+    color: var(--clr-primary-7);
+}
+.showLoading{
+    display: grid;
 }
 /* 
 =====================

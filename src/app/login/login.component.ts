@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   login:Login = new Login();
   message:String;
   isValid:boolean;
+  showLoading:boolean;
   constructor(private registerService:RegisterService,private router:Router) { }
   // logout;
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   }
   checkLogin(){
+    this.showLoading=true;
     console.log(JSON.stringify(this.login));
     this.registerService.loginCustomer(this.login).subscribe(
       msg=>{
@@ -29,7 +31,8 @@ export class LoginComponent implements OnInit {
           // this.logout.innerHTML=`logout`;
         }
         else{
-          this.message="Login failed";
+          this.showLoading=false;
+          this.message="Login failed. Wrong Credentials";
         }
       }
     )

@@ -12,8 +12,10 @@ export class RegisterComponent implements OnInit {
   customer:Customer = new Customer();
   constructor(private fb:FormBuilder,private registerService:RegisterService){}
   message:String;
+  message1:String;
   showSuccess:boolean;
   hideForm:boolean;
+  showLoading:boolean;
   // regForm= new FormGroup({
   //   customerName: new FormControl(''),
   //   customerEmail: new FormControl(''),
@@ -45,9 +47,11 @@ export class RegisterComponent implements OnInit {
   })
   
   onSubmit(){
+    this.showLoading=true;
     // console.log(this.regForm.value);
     // console.log(this.regForm.valid);
     if(this.regForm.valid){
+      this.message1=""
       this.customer = JSON.parse(JSON.stringify(this.regForm.value));
       console.log(this.customer);
       this.registerService.signup(this.customer).subscribe(
@@ -59,15 +63,21 @@ export class RegisterComponent implements OnInit {
         if(this.message==="Signup successful"){
           this.showSuccess = true;
           this.hideForm = true;
+          this.showLoading = false;
         }
         else{
+          this.showLoading = false;
           this.showSuccess = false;
         }
       }
       )
     }
-
+else{
+      this.showLoading = false;
+      this.message1="Invalid inputs. Please correct them."
     }
+    }
+    
     
       
   ngOnInit(){

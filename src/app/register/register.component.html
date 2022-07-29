@@ -1,4 +1,4 @@
-
+ <div [class.showLoading]="showLoading" class="loading"><h3>loading...</h3></div>
 <div class="section register-section">
   <h2 [class.successMsgDisabled]="hideForm" class="register-heading section-heading">&nbsp;register&nbsp;</h2>
   <div class="section-center">
@@ -178,6 +178,6 @@
   <div [class.successMsgDisabled]="hideForm">
     Already a customer? <a [routerLink]="['/loginLink']">Login</a>
   </div>
-    
+    <p style="color: red;">{{message1}}</p>
   </div>
 </div>
