@@ -1,0 +1,30 @@
+<nav class="dashnav">
+  <div class="dashnav-center">
+    <div class="dashnav-header">
+      <!-- <a [routerLink]="['/homeLink']"><img class="nav-logo" src="../assets/LoanBuddy1.JPG" alt=""></a> -->
+      <!-- <a class="nav-logo" href="">LoanBuddy</a> -->
+      <fa-icon class="toggle-btn" [icon]="['fas','bars']"></fa-icon>
+  </div>
+  <ul class="dash-pages">
+      <li class="dash-page">
+          <a [routerLink]="['/customersLink']">customers</a>
+    </li>
+    <!-- <li class="page">
+      <a [routerLink]="['/calculatorLink']">calculator</a>
+    </li> -->
+    <li class="dash-page">
+      <a [routerLink]="['/applicationsLink']">applications</a>
+    </li>
+    <li class="dash-page">
+      <a [routerLink]="['/feedbacksLink']">feedbacks</a>
+    </li>
+    <li class="dash-page">
+        <a [routerLink]="['/loginLink']">logout</a>
+    </li>
+    <li class="dash-page">
+      <p>Hi admin</p><a [routerLink]="['/adminDashboardLink']"></a>
+    </li>
+  </ul>
+  
+  </div>
+</nav>

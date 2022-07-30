@@ -21,14 +21,23 @@ export class LoginComponent implements OnInit {
   }
   checkLogin(){
     this.showLoading=true;
-    console.log(JSON.stringify(this.login));
+    console.log(this.login);
     this.registerService.loginCustomer(this.login).subscribe(
       msg=>{
         this.isValid = msg;
         if(this.isValid){
-          this.message = "Login successful";
-          this.router.navigate(['dashboardLink']);
+          console.log(this.login.customerId==6);
+          
+          if(this.login.customerId==23 && this.login.customerPassword=='Pass@123'){
+            console.log("Admin Dashboard");
+            this.message = "Login successful";
+          this.router.navigate(['/adminDashboardLink']);
           // this.logout.innerHTML=`logout`;
+          }
+          else{
+            sessionStorage.setItem('userId',JSON.stringify(this.login.customerId));
+            this.router.navigate(['dashboardLink']);
+          }
         }
         else{
           this.showLoading=false;
