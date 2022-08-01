@@ -1,1 +1,17 @@
-<p>documents works!</p>
+<div class="section">
+    <h2 class="section-heading">
+        documents
+    </h2>
+    <div class="section-center">
+      <div class="docViewBtns">
+        <button class="btn">aadhar</button>
+      <button class="btn">pan</button>
+      <button class="btn">passbook</button>
+      <button class="btn">birth proof</button>
+      <button class="btn">income statement</button>
+      </div>
+    </div>
+</div>
+<pdf-viewer [src]="'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'" [render-text]="true"
+              [original-size]="false"
+              style="background:white;width: 400px; height: 500px"></pdf-viewer>

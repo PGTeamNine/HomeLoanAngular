@@ -19,10 +19,10 @@
 <div [class.hideSideBar]="closeSide" class="sidebar">
     <fa-icon (click)="onClose()" [icon]="['fas','close']"></fa-icon>
     <ul class="links">
-        <li class="link"><a href="#app">application</a></li>
+        <li class="link"><a [routerLink]="['./customerHomeLink']">home</a></li>
     </ul>
-    <ul class="links">
-        <li class="link"><button (click)="onStatusClick()" >status</button></li>
+    <ul [class.show]="showApplication" class="links appLink">
+        <li class="link"><a [routerLink]="['./customerHomeLink']">application</a></li>
     </ul>
     <ul class="links">
         <li class="link"><button>calculator</button></li>
@@ -30,155 +30,14 @@
     <!-- <ul class="links">
         <li class="link"><button>property</button></li>
     </ul> -->
-    <ul class="links">
+    <!-- <ul class="links">
         <li class="link"><button>documents</button></li>
+    </ul> -->
+    <ul [class.hide]="showApplication" class="links">
+        <li class="link"><a [routerLink]="['./applynewLink']">new application</a></li>
     </ul>
     <ul class="links">
-        <li class="link"><a [routerLink]="['/applynewLink']">new application</a></li>
-    </ul>
-    <ul class="links">
-        <li class="link"><button>how to apply</button></li>
+        <li class="link"><a [routerLink]="['./howToApplyDashLink']">how to apply</a></li>
     </ul>
 </div>
-<!-- APPLICATION -->
-<div class="section">
-<div class="section-center">
-    <div class="details-grid">
-        <div class="application">
-        <div class="app-card">
-        <h3>Application</h3>
-        <div class="app-info">
-            <p>Application ID: {{application.loanAppId}}</p>
-            <p>Maximum Loan Grantable: {{application.maxLoanGrant}}</p>
-            <p>Loan Amount: {{application.loanAmmount}}</p>
-            <p>Tenure: {{application.tenure}}</p>
-        </div>
-        
-    </div>
-    
-    <h4 [class.showStatus]="showStatus1" class="app-status">{{application.appStatus}}</h4>
-    </div>
-    <!-- PROPERTIES -->
-<div class="properties">
-    <div class="app-card">
-        <h3>Property</h3>
-        <div class="app-info">
-            <p>Property ID: {{property.propertyId}}</p>
-            <p>Location: {{property.propertyLocation}}</p>
-            <p>Amount: {{property.propertyAmount}}</p>
-            <p>Type: {{property.propertyType}}</p>
-        </div>
-        
-    </div>
-    </div>
-</div>
-
-</div>
-
-
-
-
-<!-- CALCULATOR -->
-    <div id="calculator" class="section header-span">
-  <h2 class="section-heading">&nbsp;eligibility/EMI&nbsp;</h2>
-  <div class="section-center calculator-section">
-    <div class="card calc-card">
-      <div class="tabs">
-        <button [ngClass]="selected1" (click)="onClick1()" class="tab tab1">
-          eligibility
-        </button>
-        <button [ngClass]="selected2" (click)="onClick2()" class="tab tab2">
-          EMI
-        </button>
-      </div>
-      <form
-        [formGroup]="formdata"
-        [ngClass]="visible1"
-        (ngSubmit)="onSubmitEligibility(formdata.value)"
-        class="calc"
-      >
-        <!-- <div class="inputs"> -->
-        <div class="input input-top">
-          <label for="income">monthly income</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="monthly income"
-            id="income"
-            name="income"
-            formControlName="income"
-          />
-        </div>
-        <div class="input input-bottom">
-          <label for="roi">rate of interest</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="rate of interest"
-            id="roi"
-            name="roi"
-            formControlName="roi"
-          />
-        </div>
-        <!-- </div> -->
-
-        <input type="submit" class="btn card-btn" value="calculate" />
-      </form>
-      <form
-        [formGroup]="formdata1"
-        [ngClass]="visible2"
-        (ngSubmit)="onSubmitEmi(formdata1.value)"
-        class="calc"
-      >
-        <!-- <div class="inputs"> -->
-        <div class="input input-top">
-          <label for="loan">loan</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="loan"
-            formControlName="loan"
-            id="loan"
-          />
-        </div>
-        <div class="input">
-          <label for="roi">rate of interest</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="rate of interest"
-            id="roi"
-            formControlName="roi1"
-          />
-        </div>
-        <div class="input input-bottom">
-          <label for="tenure">tenure</label>
-          <input
-            type="text"
-            class="box"
-            placeholder="tenure"
-            formControlName="tenure"
-            id="tenure"
-          />
-        </div>
-
-        <!-- </div> -->
-        <button class="btn card-btn">calculate</button>
-      </form>
-    </div>
-    <div class="description calc-description">
-      <div class="description-output">
-        <p>
-        Need to know the maximum loan you are eligible for? Check out LoanBuddy's Eligibility calculator.
-       Interested in availing a home loan, but unsure of the EMIs that you need to pay? Don’t worry, the home loan EMI calculator from LoanBuddy is just what you need. Using our online calculator, input the loan amount, the rate of interest and the loan tenure. The calculator will then display the EMI amount you will need to pay each month. It’s that simple!</p>
-        <span class="terms">** These calculators are provided only as general self-help Planning Tools. 
-Results depend on many factors, including the assumptions you provide. We 
-do not guarantee their accuracy, or applicability to your circumstances.</span>
-      </div>
-      <div class="percentage">
-        
-      </div>
-      
-    </div>
-  </div>
-</div>
+<router-outlet></router-outlet>

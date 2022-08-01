@@ -25,10 +25,12 @@ export class LoginComponent implements OnInit {
     this.registerService.loginCustomer(this.login).subscribe(
       msg=>{
         this.isValid = msg;
+        console.log(this.isValid);
+        
         if(this.isValid){
-          console.log(this.login.customerId==6);
+          // console.log(this.login.customerId==6);
           
-          if(this.login.customerId==23 && this.login.customerPassword=='Pass@123'){
+          if(this.login.customerId==1 && this.login.customerPassword=='@Dddd1234'){
             console.log("Admin Dashboard");
             this.message = "Login successful";
           this.router.navigate(['/adminDashboardLink']);
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
           }
           else{
             sessionStorage.setItem('userId',JSON.stringify(this.login.customerId));
-            this.router.navigate(['dashboardLink']);
+            this.router.navigate(['/dashboardLink']);
           }
         }
         else{

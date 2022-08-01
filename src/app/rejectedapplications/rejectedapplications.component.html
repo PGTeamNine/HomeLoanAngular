@@ -1,5 +1,5 @@
 <div class=""></div>
-<h2 class="section-heading">pending applications</h2>
+<h2 class="section-heading">approved applications</h2>
 <table>
     <thead>
         <tr>
@@ -9,18 +9,14 @@
 <th>loanAmmount</th>
 <th>appStatus</th>
 <th>customerId</th>
-<th>operation</th>
-<th>documents</th>
     </tr>
     </thead>
-    <tr *ngFor="let p of pending">
+    <tr *ngFor="let p of rejected">
         <td>{{p.loanAppId}}</td>
         <td>{{p.maxLoanGrant}}</td>
         <td>{{p.tenure}}</td>
         <td>{{p.loanAmmount}}</td>
         <td>{{p.appStatus}}</td>
         <td>{{p.customer.customerId}}</td>
-        <td><button (click)="approve(p.customer.customerId)" class="btn">approve</button><br><button class="btn" (click)="reject()">reject</button></td>
-        <td><button class="btn"><a [routerLink]="['../documentsLink']">view</a></button></td>
     </tr>
 </table>

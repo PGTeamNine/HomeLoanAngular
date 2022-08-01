@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-import { faL } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 import { Application } from '../application';
 import { Customer } from '../customer';
 import { Property } from '../property';
 import { RegisterService } from '../register.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-customerhome',
+  templateUrl: './customerhome.component.html',
+  styleUrls: ['./customerhome.component.css']
 })
-export class DashboardComponent implements OnInit {
-  constructor(private registerService:RegisterService,private routerLink:Router) { }
+export class CustomerhomeComponent implements OnInit {
+
+ constructor(private registerService:RegisterService,private routerLink:Router) { }
   customer:Customer = new Customer();
   property:Property = new Property();
   application:Application = new Application();
@@ -142,7 +142,6 @@ export class DashboardComponent implements OnInit {
   closeSide:boolean;
   // When this class gets initialized 
   onStatusClick(){
-    // this.routerLink.navigate(['./customerHomeLink'])
     this.showStatus1=true;
     console.log(this.showStatus1);
     
@@ -150,12 +149,14 @@ export class DashboardComponent implements OnInit {
   onClose(){
     this.closeSide=!this.closeSide;
   }
-  // onClickApply(){
-  //   this.routerLink.navigate(['applynewLink']);
-  // }
+  onClickApply(){
+    this.routerLink.navigate(['applynewLink']);
+  }
   showApplication:boolean;
-  
+
+ 
   ngOnInit(): void {
+    
     // this.registerService.getCustomer(JSON.parse(sessionStorage.getItem("userId"))).subscribe(
     //   cus=>{
     //     this.customer = JSON.parse(cus);
@@ -163,34 +164,34 @@ export class DashboardComponent implements OnInit {
         
     //   }
     // )
-    // this.showApplication = JSON.parse(sessionStorage.getItem('showAppBtn'));
-    // console.log(this.showApplication);
-    
-    // this.closeSide = false;
-    // this.showStatus1 = false;
-    // this.displayResult=  document.querySelector('.description-output');
-    // this.calcDesc=  document.querySelector('.calc-description');
-    // this.percentageBar = document.querySelector('.percentage');
-    // this.selected1 = 'selected-tab'
-    // this.visible2='calc-invisible'
-    // this.formdata = new FormGroup({
-    //      income: new FormControl(),
-    //      roi: new FormControl()
-    //   });
-    //   this.formdata1 = new FormGroup({
-    //      loan: new FormControl(),
-    //      roi1:new FormControl(),
-    //      tenure: new FormControl()
-    //   });
+    this.showApplication;
+    this.closeSide = false;
+    this.showStatus1 = false;
+    this.displayResult=  document.querySelector('.description-output');
+    this.calcDesc=  document.querySelector('.calc-description');
+    this.percentageBar = document.querySelector('.percentage');
+    this.selected1 = 'selected-tab'
+    this.visible2='calc-invisible'
+    this.formdata = new FormGroup({
+         income: new FormControl(),
+         roi: new FormControl()
+      });
+      this.formdata1 = new FormGroup({
+         loan: new FormControl(),
+         roi1:new FormControl(),
+         tenure: new FormControl()
+      });
     this.registerService.getApplicationByCustomer(this.cusId).subscribe(
       appl=>{
+        console.log(appl);
         if(appl!=null){
           this.showApplication=true;
+          this.application = appl;
         }
         else{
           this.showApplication=false;
         }
-        console.log("showapp"+this.showApplication);
+        console.log(this.application);
         
       }
     )
@@ -198,15 +199,19 @@ export class DashboardComponent implements OnInit {
       prop=>{
         if(prop!=null){
           this.showApplication=true;
+
+          this.property = prop;
         }
         else{
           this.showApplication=false;
         }
-        this.property = prop;
         console.log(this.property);
         
       }
     )
+    // sessionStorage.setItem('showAppBtn',this.showApplication.toString());
+
   }
+
 
 }

@@ -1,7 +1,4 @@
-import { Customer } from "./customer";
-
-export class Application {
-    loanAppId:number;
+export class Applyloan {
 	maxLoanGrant:number;
 	tenure:number;
 	loanAmmount:number;

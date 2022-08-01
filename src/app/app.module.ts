@@ -22,6 +22,12 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { AdminapplicationsComponent } from './adminapplications/adminapplications.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { ApplynewComponent } from './applynew/applynew.component';
+import { CustomerhomeComponent } from './customerhome/customerhome.component';
+import { HowtoapplydashboardComponent } from './howtoapplydashboard/howtoapplydashboard.component';
+import { CustomerslistComponent } from './customerslist/customerslist.component';
+import { ApprovedapplicationsComponent } from './approvedapplications/approvedapplications.component';
+import { RejectedapplicationsComponent } from './rejectedapplications/rejectedapplications.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 @NgModule({
@@ -41,7 +47,12 @@ import { ApplynewComponent } from './applynew/applynew.component';
     AdminhomeComponent,
     AdminapplicationsComponent,
     DocumentsComponent,
-    ApplynewComponent
+    ApplynewComponent,
+    CustomerhomeComponent,
+    HowtoapplydashboardComponent,
+    CustomerslistComponent,
+    ApprovedapplicationsComponent,
+    RejectedapplicationsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +60,8 @@ import { ApplynewComponent } from './applynew/applynew.component';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

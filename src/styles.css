@@ -864,8 +864,9 @@ REGISTER
     text-align: left;
     max-width: 250px;
 }
-.form-input small{
+small{
     color: red;
+    text-align: left;
 }
 .hideMessage{
     display: none;
@@ -1090,6 +1091,7 @@ margin-bottom: 5rem;
     font-size: 2rem;
     margin: 1rem;
     cursor: pointer;
+    position: fixed;
 }
 .links{
     display: block;
@@ -1127,6 +1129,9 @@ margin-bottom: 5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.application-section{
+    display: none;
+}
 .app-card{
     background: var(--clr-white);
     border-radius: var(--card-radius);
@@ -1157,9 +1162,83 @@ margin-bottom: 5rem;
 .showStatus{
     display: block;
 }
+/* new appliccation */
+.doc-card{
+    background: var(--clr-white);
+    border-radius: var(--card-radius);
+    max-width: 400px;
+    margin: 0 auto 2rem auto;
+    /* text-align: left; */
+    padding: 1rem;
+}
+.doc-inputs{
+    max-width: 300px;
+    margin: 0 auto;
+}
+.doc-input{
+    text-align: left;
+}
+.how{
+    text-align: left;
+}
+.doc-input input{
+    background: var(--clr-primary-6);
+    border-radius: var(--card-radius);
+    padding: 0.5rem 0.75rem;
+}
+.prop-form{
+    background: var(--clr-white);
+    border-radius: var(--card-radius);
+    margin: 0 auto;
+    max-width: 450px;
+    padding: 2rem;
+}
+.prop-form .box{
+    width: 100%;
+    
+}
+.appLink{
+    display: none;
+}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
+.prop-input{
+    margin-bottom: 1rem;
+}
 /* ADMIN DASHBOARD */
 .admin-home{
     background: rgb(249, 240, 229);
+}
+.admin-sidebar{
+    
+}
+table{
+    /* table-layout: fixed; */
+    width: 95%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin: 0 auto 2rem auto;
+}
+table th{
+    text-transform: uppercase;
+    /* width: 15%; */
+
+}
+thead th:nth-child(3){
+width: 20%;
+}
+thead th:nth-child(4){
+    width: 15%;
+}
+table th,td{
+    max-width: 150px;
+    text-align: center;
+    border: 2px solid black;
+    padding: 1rem;
 }
 .dash-center {
     width: 90vw;
@@ -1172,6 +1251,14 @@ margin-bottom: 5rem;
     margin-left: 10rem;
     
     
+}
+.docViewBtns{
+    display: grid;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.docViewBtns .btn{
+    /* width: 100px; */
 }
 /* 
 =====================

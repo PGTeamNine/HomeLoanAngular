@@ -5,5 +5,5 @@ export class Property {
 	propertyLocation:string;
 	propertyAmount:number;
 	propertyType:string;
-    customer:Customer;
+    customerId:number;
 }

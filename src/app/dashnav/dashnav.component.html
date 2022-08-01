@@ -1,30 +1,46 @@
 <nav class="dashnav">
   <div class="dashnav-center">
-    <div class="dashnav-header">
-      <!-- <a [routerLink]="['/homeLink']"><img class="nav-logo" src="../assets/LoanBuddy1.JPG" alt=""></a> -->
-      <!-- <a class="nav-logo" href="">LoanBuddy</a> -->
-      <fa-icon class="toggle-btn" [icon]="['fas','bars']"></fa-icon>
-  </div>
   <ul class="dash-pages">
-      <li class="dash-page">
-          <a [routerLink]="['/customersLink']">customers</a>
-    </li>
-    <!-- <li class="page">
-      <a [routerLink]="['/calculatorLink']">calculator</a>
-    </li> -->
     <li class="dash-page">
-      <a [routerLink]="['/applicationsLink']">applications</a>
+      Hi Admin
     </li>
     <li class="dash-page">
-      <a [routerLink]="['/feedbacksLink']">feedbacks</a>
+        <a [routerLink]="['/homeLink']"><img class="nav-logo" src="../assets/LoanBuddy1.JPG" alt=""></a>
     </li>
     <li class="dash-page">
-        <a [routerLink]="['/loginLink']">logout</a>
-    </li>
-    <li class="dash-page">
-      <p>Hi admin</p><a [routerLink]="['/adminDashboardLink']"></a>
+      <a [routerLink]="['/loginLink']">logout</a>
     </li>
   </ul>
   
   </div>
 </nav>
+
+<fa-icon (click)="onClose()" class="side-toggle-btn" [icon]="['fas','bars']"></fa-icon>
+<div [class.hideSideBar]="closeSide" class="admin-sidebar sidebar">
+    <fa-icon (click)="onClose()" [icon]="['fas','close']"></fa-icon>
+    <ul class="links">
+        <li class="link"><a [routerLink]="['./adminHomeLink']">home</a></li>
+    </ul>
+    <ul class="links">
+        <li class="link"><a [routerLink]="['./adminHomeLink']" >applications</a></li>
+    </ul>
+    <ul  class="links">
+        
+        <li class="link"><a [routerLink]="['./adminApplicationsLink']" >pending </a></li>
+    </ul>
+    <ul class="links">
+        <li class="link"><a [routerLink]="['./approvedAppLink']">approved </a></li>
+    </ul>
+    <!-- <ul class="links">
+        <li class="link"><button>property</button></li>
+    </ul> -->
+    <!-- <ul class="links">
+        <li class="link"><button>documents</button></li>
+    </ul> -->
+    <ul class="links">
+        <li class="link"><a [routerLink]="['./rejectedAppLink']">rejected</a></li>
+    </ul>
+    <ul class="links">
+        <li class="link"><a [routerLink]="['./customersListLink']">customers </a></li>
+    </ul>
+</div>

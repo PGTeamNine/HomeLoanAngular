@@ -5,13 +5,18 @@ import { AdminapplicationsComponent } from './adminapplications/adminapplication
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { ApplynewComponent } from './applynew/applynew.component';
+import { ApprovedapplicationsComponent } from './approvedapplications/approvedapplications.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { CustomerhomeComponent } from './customerhome/customerhome.component';
+import { CustomerslistComponent } from './customerslist/customerslist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { HomeComponent } from './home/home.component';
 import { HowtoapplyComponent } from './howtoapply/howtoapply.component';
+import { HowtoapplydashboardComponent } from './howtoapplydashboard/howtoapplydashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { RejectedapplicationsComponent } from './rejectedapplications/rejectedapplications.component';
 
 const routes: Routes = [
 
@@ -40,10 +45,17 @@ const routes: Routes = [
     component:DashboardComponent,
     children:[
       {
-        path:'', component:DashboardComponent
+        path:'applynewLink', component: ApplynewComponent
       },
       {
-        path:'applynewLink', component: ApplynewComponent
+        path:'customerHomeLink', component:CustomerhomeComponent
+      },
+      {
+        path:'howToApplyDashLink', component:HowtoapplydashboardComponent
+      },
+
+      {
+        path:'', component:CustomerhomeComponent
       },
       // {
       //   path:'changepasswordLink', component:
@@ -55,14 +67,26 @@ const routes: Routes = [
     component:AdmindashboardComponent,
     children:[
       {
-        path:'', component:AdminhomeComponent
-      },
-      {
         path:'adminHomeLink', component:AdminhomeComponent
       },
       {
         path:'adminApplicationsLink',component: AdminapplicationsComponent
-      }
+      },
+      {
+        path:'customersListLink',component: CustomerslistComponent
+      },
+      {
+        path:'approvedAppLink', component:ApprovedapplicationsComponent
+      },
+      {
+         path:'documentsLink',component: DocumentsComponent
+      },
+      {
+        path:'rejectedAppLink', component:RejectedapplicationsComponent
+      },
+      {
+        path:'', component:AdminhomeComponent
+      },
     ]
     
   },

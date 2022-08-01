@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashnav.component.css']
 })
 export class DashnavComponent implements OnInit {
-
+closeSide:boolean;
   constructor() { }
-
+onClose(){
+    this.closeSide=!this.closeSide;
+  }
   ngOnInit(): void {
   }
 
