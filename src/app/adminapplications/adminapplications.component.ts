@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 import { Application } from '../application';
 
@@ -9,18 +10,20 @@ import { Application } from '../application';
 })
 export class AdminapplicationsComponent implements OnInit {
 
-  constructor(private adminService:AdminService) { }
+  constructor(private adminService:AdminService,private router:Router,private route: ActivatedRoute) { }
 pending:Application[] = []
+searchById:any;
 approve(cusId:number){
 this.adminService.approve(cusId).subscribe(
   msg=>{
     console.log(msg);
-    // this.
+    // this.router.navigate(['../adminApplicationsLink'], { relativeTo: this.route });
+     window.location.reload();
   }
 )
 }
 reject(cusId:number){
-this.adminService.approve(cusId).subscribe(
+this.adminService.reject(cusId).subscribe(
   msg=>{
     console.log(msg);
     // this.

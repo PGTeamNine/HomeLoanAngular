@@ -1,17 +1,20 @@
 <div class="section">
     <h2 class="section-heading">
-        documents
+        &nbsp;documents&nbsp;
     </h2>
     <div class="section-center">
       <div class="docViewBtns">
-        <button class="btn">aadhar</button>
+        <!-- <button class="btn">aadhar</button>
       <button class="btn">pan</button>
       <button class="btn">passbook</button>
       <button class="btn">birth proof</button>
-      <button class="btn">income statement</button>
+      <button class="btn">income statement</button> -->
+      <a (click)="viewClick('aadhar')" class="btn green"  href="http://localhost:9090/downloads/{{customerId}}/{{docs.aadhar}}" target="_blank" >View aadhar</a>
+      <a (click)="viewClick('pan')" class="btn green"  href="http://localhost:9090/downloads/{{customerId}}/{{docs.pan}}" target="_blank">View pan</a>
+      <a (click)="viewClick('birth')" class="btn green"  href="http://localhost:9090/downloads/{{customerId}}/{{docs.birth}}" target="_blank">View bith proof</a>
+      <a (click)="viewClick('income')" class="btn green"  href="http://localhost:9090/downloads/{{customerId}}/{{docs.incomeStatement}}" target="_blank">View income statement</a>
+      <a (click)="viewClick('passbook')" class="btn green"  href="http://localhost:9090/downloads/{{customerId}}/{{docs.passbook}}" target="_blank">View passbook</a>
       </div>
+      <a [routerLink]="['../adminApplicationsLink']" class="btn">back</a>
     </div>
 </div>
-<pdf-viewer [src]="'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'" [render-text]="true"
-              [original-size]="false"
-              style="background:white;width: 400px; height: 500px"></pdf-viewer>

@@ -1,5 +1,7 @@
-<div class=""></div>
-<h2 class="section-heading">customers</h2>
+<div class="section">
+    
+<h2 class="section-heading">&nbsp;customers&nbsp;</h2>
+<input placeholder="Search By CUSTOMERID" class="searchById" type="text" [(ngModel)]="searchById">
 <table>
     <thead>
         <tr>
@@ -16,7 +18,7 @@
         <th>retirementAge</th>
     </tr>
     </thead>
-    <tr *ngFor="let customer of customers">
+    <tr *ngFor="let customer of customers | filterpipe:searchById:'customerId'">
         <td>{{customer.customerId}}</td>
         <td>{{customer.customerName}}</td>
         <td>{{customer.customerEmail}}</td>
@@ -30,3 +32,5 @@
         <td>{{customer.retirementAge}}</td>
     </tr>
 </table>
+
+</div>

@@ -18,10 +18,12 @@ import { UploaddocumentsService } from '../uploaddocuments.service';
 export class ApplynewComponent implements OnInit {
 
   constructor(private documentsrService:UploaddocumentsService,private fb:FormBuilder,
-    private routerLink:Router,private route: ActivatedRoute) { }
+    private routerLink:Router,private route: ActivatedRoute,private registerService:RegisterService) { }
 documents:Documents = new Documents();
+maxLoan:number=0;
 selectedFiles:string[] = [];
 progressInfos=[];
+customer:Customer = new Customer();
 docForm = this.fb.group({
   aadhar: ['',[Validators.required]],
   pan: ['',[Validators.required]],
@@ -37,11 +39,11 @@ propForm=this.fb.group({
 loanForm=this.fb.group({
   loanAmmount:['',Validators.required],
   tenure:['',Validators.required],
-  maxLoanGrant:['',Validators.required]
+  maxLoanGrant:[sessionStorage.getItem('maxLoan'),Validators.required]
 })
 // j:number=0;
 onFileChange(event) {
-    this.progressInfos=[];
+  this.progressInfos=[];
     for(let k = 0;k<event.target.files.length;k++){
       console.log(event.target.files[k]);
       
@@ -133,11 +135,26 @@ application1(){
     
   }
 }
-
   ngOnInit(): void {
     console.log(this.message2);
     console.log(this.isCorrect);
+    console.log(this.maxLoan);
+    this.registerService.getCustomer(JSON.parse(sessionStorage.getItem('userId'))).subscribe(
+      c=>{
+        this.customer=c;
+        console.log(c);
+        console.log(this.customer.customerIncome);
+        this.maxLoan=this.customer.customerIncome*0.6*60;
+        sessionStorage.setItem('maxLoan',JSON.stringify(this.maxLoan));
+        console.log(this.maxLoan);
+      }
+    )
+    console.log(this.maxLoan);
     
+    
+      
+      
+      
   }
 
 }

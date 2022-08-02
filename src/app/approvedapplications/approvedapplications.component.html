@@ -1,5 +1,9 @@
-<div class=""></div>
-<h2 class="section-heading">approved applications</h2>
+
+
+<div class="section">
+    <h2 class="section-heading">&nbsp;approved applications&nbsp;</h2>
+    <div class="section-center">
+<input placeholder="Search By CUSTOMERID" class="searchById" type="text" [(ngModel)]="searchById">
 <table>
     <thead>
         <tr>
@@ -11,7 +15,7 @@
 <th>customerId</th>
     </tr>
     </thead>
-    <tr *ngFor="let p of approved">
+    <tr *ngFor="let p of approved | filterpipe:searchById:'customer'">
         <td>{{p.loanAppId}}</td>
         <td>{{p.maxLoanGrant}}</td>
         <td>{{p.tenure}}</td>
@@ -20,3 +24,6 @@
         <td>{{p.customer.customerId}}</td>
     </tr>
 </table>
+
+    </div>
+</div>

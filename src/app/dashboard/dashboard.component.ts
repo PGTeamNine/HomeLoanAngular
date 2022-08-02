@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   property:Property = new Property();
   application:Application = new Application();
   cusId:number=JSON.parse(sessionStorage.getItem("userId"));
+  cusName:string;
   title = 'Services';
   addCommas = new Intl.NumberFormat('en-IN');
   x:any; // (1+r)^n
@@ -190,7 +191,7 @@ export class DashboardComponent implements OnInit {
         else{
           this.showApplication=false;
         }
-        console.log("showapp"+this.showApplication);
+        // console.log("showapp"+this.showApplication);
         
       }
     )
@@ -204,6 +205,13 @@ export class DashboardComponent implements OnInit {
         }
         this.property = prop;
         console.log(this.property);
+        
+      }
+    )
+    this.registerService.getCustomer(this.cusId).subscribe(
+      name=>{
+        this.customer = name;
+        
         
       }
     )

@@ -1,0 +1,54 @@
+<!-- APPLICATION -->
+<div [class.show]="showApplication" class="application-section section">
+<div class="section-center">
+    <div class="details-grid">
+        <div class="application">
+        <div class="app-card">
+        <h3>Application</h3>
+        <div class="app-info">
+            <p>Application ID: {{application.loanAppId}}</p>
+            <p>Maximum Loan Grantable: {{application.maxLoanGrant}}</p>
+            <p>Loan Amount: {{application.loanAmmount}}</p>
+            <p>Tenure: {{application.tenure}}</p>
+        </div>
+        
+    </div>
+    
+</div>
+<!-- PROPERTIES -->
+<div class="properties">
+    <div class="app-card">
+        <h3>Property</h3>
+        <div class="app-info">
+            <p>Property ID: {{property.propertyId}}</p>
+            <p>Location: {{property.propertyLocation}}</p>
+            <p>Amount: {{property.propertyAmount}}</p>
+            <p>Type: {{property.propertyType}}</p>
+        </div>
+        
+    </div>
+</div>
+</div>
+<button style="margin-bottom: 2rem;" (click)="onStatusClick()" class="btn">check status</button>
+<h4 [class.showStatus]="showStatus1" class="app-status">{{application.appStatus}}</h4>
+</div>
+</div>
+
+<div [class.hide]="!showAccount" class="section">
+  <h2 class="section-heading">loan account</h2>
+  <div class="section-center">
+     <div class="application">
+        <div class="app-card">
+        <h3>account</h3>
+        <div class="app-info">
+            <p>Application ID: {{application.loanAppId}}</p>
+            <p>Loan Amount: {{application.loanAmmount}}</p>
+            <p>Tenure: {{application.tenure}}</p>
+            <p>Monthly EMI: {{monthlyEmi}}</p>
+        </div>
+        
+    </div>
+    
+</div>
+  </div>
+</div>

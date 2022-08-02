@@ -17,6 +17,7 @@ import { HowtoapplydashboardComponent } from './howtoapplydashboard/howtoapplyda
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RejectedapplicationsComponent } from './rejectedapplications/rejectedapplications.component';
+import { ViewappComponent } from './viewapp/viewapp.component';
 
 const routes: Routes = [
 
@@ -53,7 +54,9 @@ const routes: Routes = [
       {
         path:'howToApplyDashLink', component:HowtoapplydashboardComponent
       },
-
+      {
+        path:'viewAppLink', component:ViewappComponent
+      },
       {
         path:'', component:CustomerhomeComponent
       },

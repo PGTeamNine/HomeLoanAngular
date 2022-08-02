@@ -1,6 +1,8 @@
-<div class=""></div>
-<h2 class="section-heading">pending applications</h2>
-<table>
+<div class="section">
+    
+<h2 class="section-heading">&nbsp;pending applications&nbsp;</h2>
+<input style="width: 90%;" placeholder="Search By CUSTOMERID" class="searchById" type="text" [(ngModel)]="searchById">
+<table class="pending-table">
     <thead>
         <tr>
         <th>loanAppId</th>
@@ -13,14 +15,16 @@
 <th>documents</th>
     </tr>
     </thead>
-    <tr *ngFor="let p of pending">
+    <tr *ngFor="let p of pending | filterpipe:searchById:'customer'">
         <td>{{p.loanAppId}}</td>
         <td>{{p.maxLoanGrant}}</td>
         <td>{{p.tenure}}</td>
         <td>{{p.loanAmmount}}</td>
         <td>{{p.appStatus}}</td>
         <td>{{p.customer.customerId}}</td>
-        <td><button (click)="approve(p.customer.customerId)" class="btn">approve</button><br><button class="btn" (click)="reject()">reject</button></td>
-        <td><button class="btn"><a [routerLink]="['../documentsLink']">view</a></button></td>
+        <td><button (click)="approve(p.customer.customerId)" class="btn green">approve</button><br><button class="btn red" (click)="reject()">reject</button></td>
+        <td><a class="btn" [routerLink]="['../documentsLink']">view</a></td>
     </tr>
 </table>
+
+</div>

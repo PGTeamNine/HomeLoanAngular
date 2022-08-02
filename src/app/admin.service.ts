@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Application } from './application';
+import { Customer } from './customer';
 import { Customerlist } from './customerlist';
+import { Documents } from './documents';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +28,12 @@ export class AdminService {
   }
   approve(cusId:number):Observable<string>{
     return this.httpClient.get<string>("http://localhost:9090/application/approveApp/"+cusId);
+  }
+  reject(cusId:number):Observable<string>{
+    return this.httpClient.get<string>("http://localhost:9090/application/rejectApp/"+cusId);
+  }
+  viewDoc(cusId:number,type:string):Observable<Documents>{
+    return this.httpClient.get<Documents>("http://localhost:9090/documents/profile?customerId="+cusId+"&type="+type);
   }
 
 }

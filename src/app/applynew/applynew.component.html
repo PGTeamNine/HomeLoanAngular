@@ -1,5 +1,5 @@
 <div class="section">
-    <h2 class="section-heading">documents upload</h2>
+    <h2 class="section-heading">&nbsp;documents upload&nbsp;</h2>
     <div class="section-center">
         <form enctype="multipart/form-data" (ngSubmit)="upload()" [formGroup]="docForm" class="doc-form doc-card">
     <div class="doc-inputs">
@@ -29,7 +29,7 @@
     </div>
 </div>
 <div class="section">
-    <h2 class="section-heading">property details</h2>
+    <h2 class="section-heading">&nbsp;property details&nbsp;</h2>
     <div class="section-center">
         <form  (ngSubmit)="property1()" [formGroup]="propForm" class="prop-form">
     <div class="prop-inputs">
@@ -61,16 +61,17 @@
 </div>
 
 <div class="section">
-    <h2 class="section-heading">loan application</h2>
+    <h2 class="section-heading">&nbsp;loan application&nbsp;</h2>
     <div class="section-center">
         <form  (ngSubmit)="application1()" [formGroup]="loanForm" class="prop-form">
     <div class="prop-inputs">
       <div class="prop-input">
         
-        <input [class.errorInput]="loanForm.get('maxLoanGrant').invalid && loanForm.get('maxLoanGrant').touched" formControlName="maxLoanGrant" class="box" type="text" placeholder="maximum loan grant">
+        <input style="color: red;" disabled="true" [class.errorInput]="loanForm.get('maxLoanGrant').invalid && loanForm.get('maxLoanGrant').touched" formControlName="maxLoanGrant" class="box" type="text" placeholder="maximum loan grant">
       <div *ngIf="loanForm.get('maxLoanGrant').invalid && loanForm.get('maxLoanGrant').touched">
-              <small *ngIf="loanForm.get('maxLoanGrant').errors.required">maximum loan grant is required</small>
+              
             </div>
+            <small>*Maximum loan grant is calculated from you income</small>
       </div>
       <div class="prop-input">
         

@@ -11,6 +11,7 @@ export class CustomerslistComponent implements OnInit {
 
   constructor(private adminService:AdminService) { }
   customers:Customerlist[] = [];
+  searchById:any;
   ngOnInit(): void {
     this.adminService.getAllCustomers().subscribe(
       list=>{

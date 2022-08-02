@@ -211,7 +211,14 @@ GLOBAL CLASSES
     font-weight: 600;
     text-transform: capitalize;
 }
-
+.green{
+    border-color: rgb(112, 237, 112);
+    background: rgb(112, 237, 112);
+}
+.red{
+    border-color: rgb(239, 90, 90);
+    background: rgb(239, 90, 90);
+}
 /* CARDS */
 .card {
     background: var(--clr-white);
@@ -277,7 +284,7 @@ nav {
     }
     .pages{
         display: grid;
-        grid-template-columns: repeat(3,1fr) auto;
+        grid-template-columns: repeat(4,1fr);
         justify-items: right;
         gap: 2rem;
     }   
@@ -310,7 +317,6 @@ nav {
     }
     .last-page{
         display: grid;
-        grid-template-columns: 1fr 1fr;
         justify-self: right;
         gap: 1rem;
     }
@@ -1218,7 +1224,7 @@ margin-bottom: 5rem;
 }
 table{
     /* table-layout: fixed; */
-    width: 95%;
+    width: 98%;
     border-collapse: collapse;
     border: 2px solid black;
     margin: 0 auto 2rem auto;
@@ -1229,16 +1235,29 @@ table th{
 
 }
 thead th:nth-child(3){
-width: 20%;
+width: 22%;
 }
 thead th:nth-child(4){
     width: 15%;
 }
+
 table th,td{
     max-width: 150px;
     text-align: center;
     border: 2px solid black;
     padding: 1rem;
+}
+.pending-table{
+    width: 90%;
+}
+.pending-table thead th:nth-child(3){
+    width: 10%;
+}
+.pending-table thead th:nth-child(5) {
+    width: 22%;
+}
+.pending-table thead th:nth-child(6) {
+    width: 8%;
 }
 .dash-center {
     width: 90vw;
@@ -1252,13 +1271,30 @@ table th,td{
     
     
 }
+.searchById{
+    display: block;
+    width: 100%;
+    max-width: 96vw;
+    background: var(--clr-white);
+    border-radius: var(--card-radius);
+    border: transparent;
+    height: 30px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    box-shadow: var(--light-shadow);
+}
+.searchById::placeholder{
+    font-family: var(--ff-primary);
+    font-weight: 700;
+}
 .docViewBtns{
     display: grid;
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
 }
 .docViewBtns .btn{
-    /* width: 100px; */
+    width: 400px;
 }
 /* 
 =====================

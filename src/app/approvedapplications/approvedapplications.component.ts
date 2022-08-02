@@ -10,6 +10,7 @@ import { Application } from '../application';
 export class ApprovedapplicationsComponent implements OnInit {
 constructor(private adminService:AdminService){}
   approved:Application[] = []
+  searchById:any;
   ngOnInit(): void {
     this.adminService.getApproved().subscribe(
         list=>{

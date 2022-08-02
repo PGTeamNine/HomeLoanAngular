@@ -11,6 +11,7 @@ export class RejectedapplicationsComponent implements OnInit {
 
   constructor(private adminService:AdminService) { }
 rejected:Application[] = []
+searchById;
   ngOnInit(): void {
     this.adminService.getRejected().subscribe(
         list=>{

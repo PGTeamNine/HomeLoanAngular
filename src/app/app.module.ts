@@ -28,6 +28,8 @@ import { CustomerslistComponent } from './customerslist/customerslist.component'
 import { ApprovedapplicationsComponent } from './approvedapplications/approvedapplications.component';
 import { RejectedapplicationsComponent } from './rejectedapplications/rejectedapplications.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { FilterpipePipe } from './filterpipe.pipe';
+import { ViewappComponent } from './viewapp/viewapp.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     HowtoapplydashboardComponent,
     CustomerslistComponent,
     ApprovedapplicationsComponent,
-    RejectedapplicationsComponent
+    RejectedapplicationsComponent,
+    FilterpipePipe,
+    ViewappComponent
   ],
   imports: [
     BrowserModule,

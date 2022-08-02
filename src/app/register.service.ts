@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Application } from './application';
@@ -27,7 +27,8 @@ export class RegisterService {
   }
   // getCustomerDetails
   getCustomer(customerId:number):Observable<Customer>{
-    return this.httpClient.post<Customer>("http://localhost:9090/customers/customer/"+customerId,{responseType: 'text'});
+    
+    return this.httpClient.get<Customer>("http://localhost:9090/customers/customer/"+customerId);
   }
   getApplicationByCustomer(customerId:number):Observable<Application>{
     return this.httpClient.get<Application>("http://localhost:9090/application/applicationForCust/"+customerId);
@@ -36,5 +37,7 @@ export class RegisterService {
   getPropertyByCustomer(customerId:number):Observable<Property>{
     return this.httpClient.get<Property>("http://localhost:9090/properties/viewPropertyOfCustomer/"+customerId);
   }
-
+  getCustomerName(customerId:number):Observable<string>{
+    return this.httpClient.post<string>("http://localhost:9090/customers/getCustomerName/"+customerId,{responseType: 'text'});
+  }
 }

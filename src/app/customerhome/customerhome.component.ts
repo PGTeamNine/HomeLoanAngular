@@ -17,6 +17,8 @@ export class CustomerhomeComponent implements OnInit {
   customer:Customer = new Customer();
   property:Property = new Property();
   application:Application = new Application();
+  
+  
   cusId:number=JSON.parse(sessionStorage.getItem("userId"));
   title = 'Services';
   addCommas = new Intl.NumberFormat('en-IN');
@@ -153,8 +155,8 @@ export class CustomerhomeComponent implements OnInit {
     this.routerLink.navigate(['applynewLink']);
   }
   showApplication:boolean;
-
- 
+  showAccount:boolean;
+  monthlyEmi:number;
   ngOnInit(): void {
     
     // this.registerService.getCustomer(JSON.parse(sessionStorage.getItem("userId"))).subscribe(
@@ -187,6 +189,25 @@ export class CustomerhomeComponent implements OnInit {
         if(appl!=null){
           this.showApplication=true;
           this.application = appl;
+          if(this.application.appStatus == "APPROVED"){
+            this.showAccount = true;
+            let l = this.application.loanAmmount;
+            console.log(l);
+            let r = (8/12)/100;
+            console.log(r);
+            
+            let t = this.application.tenure;
+            console.log(t);
+            
+            let y = Math.pow((1+(r)),t);
+            console.log(y);
+            
+            this.monthlyEmi = Math.round(l*r*(y/(y-1)));
+            console.log(this.monthlyEmi);
+          }
+          else{
+            this.showAccount = false;
+          }
         }
         else{
           this.showApplication=false;
@@ -209,6 +230,9 @@ export class CustomerhomeComponent implements OnInit {
         
       }
     )
+    console.log(this.application.appStatus);
+    
+    
     // sessionStorage.setItem('showAppBtn',this.showApplication.toString());
 
   }
